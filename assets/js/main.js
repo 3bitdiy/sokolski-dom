@@ -1,92 +1,101 @@
-   // -----------------------------
-    // Mobile menu
-    // -----------------------------
-    const overlay = document.getElementById('mobileOverlay');
-    const openMenu = document.getElementById('openMenu');
-    const closeMenu = document.getElementById('closeMenu');
+// -----------------------------
+// Vite
+// -----------------------------
+import "../css/main.css";
 
-    function openDrawer(){
-      overlay.classList.add('open');
-      overlay.setAttribute('aria-hidden', 'false');
-      openMenu?.setAttribute('aria-expanded', 'true');
-    }
-    function closeDrawer(){
-      overlay.classList.remove('open');
-      overlay.setAttribute('aria-hidden', 'true');
-      openMenu?.setAttribute('aria-expanded', 'false');
-    }
+// -----------------------------
+// Mobile menu
+// -----------------------------
+const overlay = document.getElementById("mobileOverlay");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
 
-    openMenu?.addEventListener('click', openDrawer);
-    closeMenu?.addEventListener('click', closeDrawer);
-    overlay?.addEventListener('click', (e) => { if(e.target === overlay) closeDrawer(); });
+function openDrawer() {
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+  openMenu?.setAttribute("aria-expanded", "true");
+}
+function closeDrawer() {
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  openMenu?.setAttribute("aria-expanded", "false");
+}
 
-    // close on Escape
-    window.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && overlay.classList.contains('open')) closeDrawer();
-    });
+openMenu?.addEventListener("click", openDrawer);
+closeMenu?.addEventListener("click", closeDrawer);
+overlay?.addEventListener("click", (e) => {
+  if (e.target === overlay) closeDrawer();
+});
 
-    // -----------------------------
-    // Footer year
-    // -----------------------------
-    document.getElementById('year').textContent = new Date().getFullYear();
+// close on Escape
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && overlay.classList.contains("open")) closeDrawer();
+});
 
-    // -----------------------------
-    // Jubilee: Desktop pinned horizontal scroll driven by vertical scroll
-    // -----------------------------
-    (function(){
-      const pin = document.querySelector('.jubilee-pin');
-      const track = document.getElementById('jubileeTrack');
-      if(!pin || !track) return;
+// -----------------------------
+// Footer year
+// -----------------------------
+document.getElementById("year").textContent = new Date().getFullYear();
 
-      const prevBtn = document.getElementById('prevCard');
-      const nextBtn = document.getElementById('nextCard');
+// -----------------------------
+// Jubilee: Desktop pinned horizontal scroll driven by vertical scroll
+// -----------------------------
+(function () {
+  const pin = document.querySelector(".jubilee-pin");
+  const track = document.getElementById("jubileeTrack");
+  if (!pin || !track) return;
 
-      function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+  const prevBtn = document.getElementById("prevCard");
+  const nextBtn = document.getElementById("nextCard");
 
-      function update(){
-        // only run on desktop where pin is visible
-        if(window.matchMedia('(max-width: 980px)').matches) return;
+  function clamp(n, a, b) {
+    return Math.max(a, Math.min(b, n));
+  }
 
-        const r = pin.getBoundingClientRect();
-        const pinHeight = pin.offsetHeight;
-        const view = window.innerHeight;
+  function update() {
+    // only run on desktop where pin is visible
+    if (window.matchMedia("(max-width: 980px)").matches) return;
 
-        // progress 0..1 while scrolling through the pin section
-        const start = 0;
-        const end = Math.max(1, pinHeight - view);
-        const scrolled = clamp(-r.top, start, end);
-        const t = scrolled / end;
+    const r = pin.getBoundingClientRect();
+    const pinHeight = pin.offsetHeight;
+    const view = window.innerHeight;
 
-        const maxX = Math.max(0, track.scrollWidth - track.clientWidth);
-        const x = maxX * t;
+    // progress 0..1 while scrolling through the pin section
+    const start = 0;
+    const end = Math.max(1, pinHeight - view);
+    const scrolled = clamp(-r.top, start, end);
+    const t = scrolled / end;
 
-        track.style.transform = `translate3d(${-x}px,0,0)`;
-      }
+    const maxX = Math.max(0, track.scrollWidth - track.clientWidth);
+    const x = maxX * t;
 
-      // Optional: next/prev buttons scroll by one card width
-      function scrollByCard(dir){
-        const card = track.querySelector('.jcard');
-        if(!card) return;
+    track.style.transform = `translate3d(${-x}px,0,0)`;
+  }
 
-        const cardW = card.getBoundingClientRect().width;
-        const gap = 18;
+  // Optional: next/prev buttons scroll by one card width
+  function scrollByCard(dir) {
+    const card = track.querySelector(".jcard");
+    if (!card) return;
 
-        const maxX = Math.max(1, track.scrollWidth - track.clientWidth);
-        const pinHeight = pin.offsetHeight;
-        const view = window.innerHeight;
-        const end = Math.max(1, pinHeight - view);
+    const cardW = card.getBoundingClientRect().width;
+    const gap = 18;
 
-        const dx = (cardW + gap) * dir;
-        const dt = dx / maxX;
-        const dy = dt * end;
+    const maxX = Math.max(1, track.scrollWidth - track.clientWidth);
+    const pinHeight = pin.offsetHeight;
+    const view = window.innerHeight;
+    const end = Math.max(1, pinHeight - view);
 
-        window.scrollBy({ top: dy, behavior: 'smooth' });
-      }
+    const dx = (cardW + gap) * dir;
+    const dt = dx / maxX;
+    const dy = dt * end;
 
-      prevBtn?.addEventListener('click', () => scrollByCard(-1));
-      nextBtn?.addEventListener('click', () => scrollByCard(1));
+    window.scrollBy({ top: dy, behavior: "smooth" });
+  }
 
-      update();
-      window.addEventListener('scroll', update, { passive:true });
-      window.addEventListener('resize', update);
-    })();
+  prevBtn?.addEventListener("click", () => scrollByCard(-1));
+  nextBtn?.addEventListener("click", () => scrollByCard(1));
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+})();
