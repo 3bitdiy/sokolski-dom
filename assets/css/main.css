@@ -122,6 +122,31 @@ nav.desktop a,
   white-space: nowrap;
 }
 
+/* Skip link (visible on keyboard focus) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
+  left: 22px;
+  top: 18px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  z-index: 3000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 /* ---------------------------
    Header fixed (flat, B/W)
 --------------------------- */
@@ -197,10 +222,10 @@ nav.desktop a:hover {
 .btn {
   height: 40px;
   padding: 0 14px;
-
   background: #fff;
   color: #000;
   font-size: 14px;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -279,6 +304,8 @@ nav.desktop a:hover {
 
 .mobile-overlay.open {
   display: block;
+  margin-top: var(--headerH);
+  backdrop-filter: blur(8px);
 }
 
 .drawer {

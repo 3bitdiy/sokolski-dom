@@ -15,6 +15,8 @@
   </head>
 
   <body>
+    <a class="skip-link" href="#top">Preskoči na sadržaj</a>
+
     <!-- Header -->
     <header>
       <div class="header-inner">
@@ -34,8 +36,6 @@
           </a>
 
           <nav class="desktop" aria-label="Glavna navigacija">
-            <a href="#predstavljanje">O centru</a>
-            <a href="#danas">Danas</a>
             <a href="arhiv-u-slikama.html">Arhiv u slikama</a>
             <a href="#kontakt">Kontakt</a>
           </nav>
@@ -47,20 +47,18 @@
     <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
       <div class="drawer" role="dialog" aria-modal="true" aria-label="Meni">
         <div class="drawer-top">
-          <div class="brand" style="gap: 10px">
+          <!-- <div class="brand" style="gap: 10px">
             <span
               class="brand-mark"
               aria-hidden="true"
               style="width: 30px; height: 30px"
             ></span>
             <span style="font-weight: 500">Meni</span>
-          </div>
+          </div> -->
           <button class="btn" id="closeMenu">Zatvori</button>
         </div>
 
         <nav aria-label="Mobilna navigacija">
-          <a href="#predstavljanje">O centru</a>
-          <a href="#danas">Danas</a>
           <a href="arhiv-u-slikama.html">Arhiv u slikama</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
@@ -73,7 +71,18 @@
       <section class="hero">
         <!-- hero image -->
         <div class="hero-media" aria-label="Hero fotografija">
-          <img src="assets/img/hero.jpg" alt="Sokolski dom, Novi Sad" />
+          <img
+            src="assets/img/placeholder-800.jpg"
+            srcset="
+              assets/img/placeholder-480.jpg   480w,
+              assets/img/placeholder-800.jpg   800w,
+              assets/img/placeholder-1200.jpg 1200w,
+              assets/img/placeholder-1600.jpg 1200w
+            "
+            sizes="(max-width: 520px) 100vw, (max-width: 980px) 100vw, 1200px"
+            alt="Sokolski dom, Novi Sad"
+            loading="lazy"
+          />
         </div>
 
         <!-- hero text -->
@@ -142,15 +151,6 @@
               <span class="tag">Nasleđe</span>
             </div>
           </div>
-
-          <!-- fotka -->
-          <!-- <div class="arhiv-grid arhiv-grid--wide">
-          <div class="jcard timeline">
-            <div class="media" style="height:280px;">
-              <img src="assets/img/predstavljanje-01.jpg" alt="Sokolski dom — fotografija" loading="lazy" />
-            </div>
-          </div>
-        </div> -->
         </div>
       </section>
 
@@ -220,7 +220,13 @@
                 <!-- BIG -->
                 <figure class="present-item present-item--big">
                   <img
-                    src="assets/img/predstavljanje-1.jpg"
+                    src="assets/img/placeholder-800.jpg"
+                    srcset="
+                      assets/img/placeholder-480.jpg   480w,
+                      assets/img/placeholder-800.jpg   800w,
+                      assets/img/placeholder-1200.jpg 1200w
+                    "
+                    sizes="(max-width:520px) 100vw, (max-width:980px) 50vw, 560px"
                     alt="Sokolski dom danas — gimnastika"
                     loading="lazy"
                   />
@@ -230,7 +236,13 @@
                 <div class="present-row">
                   <figure class="present-item">
                     <img
-                      src="assets/img/predstavljanje-2.jpg"
+                      src="assets/img/placeholder-800.jpg"
+                      srcset="
+                        assets/img/placeholder-480.jpg   480w,
+                        assets/img/placeholder-800.jpg   800w,
+                        assets/img/placeholder-1200.jpg 1200w
+                      "
+                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
                       alt="Rad sa decom"
                       loading="lazy"
                     />
@@ -238,7 +250,13 @@
 
                   <figure class="present-item">
                     <img
-                      src="assets/img/predstavljanje-3.jpg"
+                      src="assets/img/placeholder-800.jpg"
+                      srcset="
+                        assets/img/placeholder-480.jpg   480w,
+                        assets/img/placeholder-800.jpg   800w,
+                        assets/img/placeholder-1200.jpg 1200w
+                      "
+                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
                       alt="Radionice i savremeni programi"
                       loading="lazy"
                     />
@@ -246,7 +264,13 @@
 
                   <figure class="present-item">
                     <img
-                      src="assets/img/predstavljanje-4.jpg"
+                      src="assets/img/placeholder-800.jpg"
+                      srcset="
+                        assets/img/placeholder-480.jpg   480w,
+                        assets/img/placeholder-800.jpg   800w,
+                        assets/img/placeholder-1200.jpg 1200w
+                      "
+                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
                       alt="Zajednica i javni događaji"
                       loading="lazy"
                     />
@@ -274,7 +298,13 @@
           <a class="portal" href="arhiv-u-slikama.html">
             <div class="portal-media">
               <img
-                src="assets/img/Sokolski-dom-Sokolska-akademija-1.jpg"
+                src="assets/img/placeholder-800.jpg"
+                srcset="
+                  assets/img/placeholder-480.jpg   480w,
+                  assets/img/placeholder-800.jpg   800w,
+                  assets/img/placeholder-1200.jpg 1200w
+                "
+                sizes="(max-width:520px) 100vw, (max-width:980px) 50vw, 560px"
                 alt="Arhiv u slikama — arhivska fotografija"
                 loading="lazy"
               />

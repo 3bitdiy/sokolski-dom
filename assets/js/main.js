@@ -99,3 +99,77 @@ document.getElementById("year").textContent = new Date().getFullYear();
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
 })();
+
+// -----------------------------
+// Mobile menu with focus trapping and ARIA
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("openMenu");
+  const closeBtn = document.getElementById("closeMenu");
+  const overlay = document.getElementById("mobileOverlay");
+  if (!openBtn || !overlay) return;
+
+  // Inicialno stanje
+  openBtn.setAttribute("aria-expanded", "false");
+  overlay.setAttribute("aria-hidden", "true");
+
+  const focusableSelector =
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let lastFocused = null;
+
+  function openMenu() {
+    lastFocused = document.activeElement;
+    overlay.classList.add("open");
+    openBtn.setAttribute("aria-expanded", "true");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const first = overlay.querySelector(focusableSelector);
+    (first || closeBtn || overlay).focus();
+    document.addEventListener("keydown", onKeyDown);
+  }
+
+  function closeMenu() {
+    overlay.classList.remove("open");
+    openBtn.setAttribute("aria-expanded", "false");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+    document.removeEventListener("keydown", onKeyDown);
+  }
+
+  function onKeyDown(e) {
+    if (e.key === "Escape") {
+      closeMenu();
+      return;
+    }
+
+    if (e.key === "Tab" && overlay.classList.contains("open")) {
+      const nodes = Array.from(
+        overlay.querySelectorAll(focusableSelector)
+      ).filter((n) => n.offsetParent !== null);
+      if (nodes.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      const first = nodes[0],
+        last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+  // zatvori klikom na overlay pozadinu
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeMenu();
+  });
+});
+
+// End of main.js
