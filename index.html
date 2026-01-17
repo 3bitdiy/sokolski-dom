@@ -336,20 +336,73 @@
           <div class="section-head">
             <div>
               <h2>Kontakt</h2>
-              <p>Email, telefon, adresa, mapa</p>
             </div>
           </div>
 
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">Sokolski kulturni centar</div>
-              <!-- <h3>Kontakirajte nas</h3> -->
-              <p>
-                Email: office@sokolskidom.com • Telefon: 0123456789 • Adresa:
-                Ignjata Pavlasa br. 2-4
-              </p>
+          <div class="contact-grid">
+            <!-- map -->
+            <div
+              class="contact-map-wrapper"
+              aria-hidden="false"
+              title="Mapa: Sokolski dom"
+            >
+              <iframe
+                class="contact-map"
+                src="https://www.google.com/maps?q=Ignjata+Pavlasa+2-4+Novi+Sad&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+                aria-label="Mapa lokacije Sokolski dom"
+              ></iframe>
             </div>
-            <div class="foot">
+
+            <!-- contact card -->
+            <aside class="contact-card" aria-labelledby="contact-title">
+              <div class="card-body">
+                <h3 id="contact-title">Sokolski kulturni centar</h3>
+
+                <address class="contact-meta">
+                  <div>
+                    <strong>Adresa:</strong> Ignjata Pavlasa br. 2‑4, Novi Sad
+                  </div>
+                  <div>
+                    <strong>Telefon:</strong>
+                    <a href="tel:+381123456789">012 345 6789</a>
+                  </div>
+                  <div>
+                    <strong>Email:</strong>
+                    <a href="mailto:office@sokolskidom.com"
+                      >office@sokolskidom.com</a
+                    >
+                  </div>
+                </address>
+
+                <!-- <div class="hours">
+                  <div class="kicker">Radno vreme</div>
+                  <ul>
+                    <li>Ponedeljak — Petak: 09:00 — 18:00</li>
+                    <li>Subota: 10:00 — 14:00</li>
+                    <li>Nedelja: zatvoreno</li>
+                  </ul>
+                </div> -->
+
+                <div class="contact-actions">
+                  <a
+                    class="btn primary"
+                    href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Otvori u Google Maps</a
+                  >
+                </div>
+              </div>
+            </aside>
+          </div>
+          <!-- .contact-grid -->
+
+          <!-- CTA buttons -->
+          <div class="contact-cta" aria-hidden="false" style="margin-top: 16px">
+            <div class="contact-cta-row">
               <a class="btn primary" href="arhiv-u-slikama.html"
                 >Arhiv u slikama</a
               >
@@ -381,8 +434,7 @@
                 flex-wrap: wrap;
               "
             >
-              <a href="#predstavljanje">O centru</a>
-              <a href="#danas">Danas</a>
+              <a href="index.html">Početna</a>
               <a href="arhiv-u-slikama.html">Arhiv u slikama</a>
               <a href="#kontakt">Kontakt</a>
             </div>

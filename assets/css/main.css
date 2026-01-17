@@ -849,6 +849,131 @@ a.jcard:focus-visible {
 }
 
 /* ---------------------------
+   Kontakt sekcija */
+/* --------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+/* mobile: stack */
+@media (max-width: 980px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-map-wrapper {
+  width: 100%;
+  /* border-radius: 10px; */
+  overflow: hidden;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); */
+  background: #f7f7f7;
+}
+
+/* map sizing */
+.contact-map {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}
+
+@media (min-width: 980px) {
+  .contact-map {
+    height: 420px;
+  }
+}
+
+/* contact card */
+.contact-card {
+  background: var(--card-bg, #fff);
+  /* border-radius: 10px; */
+  padding: 0 18px 0 18px;
+  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04); */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-card .kicker {
+  margin-bottom: 6px;
+  color: #666;
+  font-weight: 600;
+}
+
+.contact-meta {
+  font-style: normal;
+  margin: 8px 0 12px;
+  color: #222;
+  line-height: 1.5;
+}
+
+.contact-meta a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.hours {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.hours ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.contact-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* make icon-btn visually distinct if used */
+.icon-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px 12px;
+}
+
+/* kontaktnog CTA ispod kontakt sekcije */
+.contact-cta {
+  margin: 20px 0 40px;
+  /* bude širine kontejnera (parent .container već centrira i ograničava širinu) */
+  display: block;
+}
+
+.contact-cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start; /* levo poravnanje */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#contact-title {
+  margin-top: 0;
+}
+
+@media (max-width: 520px) {
+  .contact-cta {
+    margin: 16px 0 28px;
+  }
+  .contact-cta-row {
+    gap: 8px;
+  }
+}
+@media (max-width: 980px) {
+  .contact-card {
+    padding: 22px 0 22px 0;
+  }
+}
+/* ---------------------------
    Utilities
 --------------------------- */
 .mt-10 {
