@@ -1,3 +1,6 @@
+.jcard .media > a {
+  pointer-events: auto !important;
+}
 /* ---------------------------
    Roobert PRO
 --------------------------- */
@@ -32,6 +35,7 @@
   --text: #000;
 
   --radius: 5px;
+  --photo-radius: 10px;
   --shadow: none;
 
   --container: 1200px;
@@ -530,6 +534,7 @@ nav.desktop a:hover {
   height: clamp(520px, 72vh, 860px);
   background: #ddd;
   overflow: hidden;
+  border-radius: var(--photo-radius);
 }
 
 .hero-media .stage img {
@@ -855,7 +860,7 @@ h1 {
 
 .panel-media {
   margin: 0;
-  border-radius: 17px;
+  border-radius: var(--photo-radius);
   overflow: hidden;
   background: #f7f7f7;
 }
@@ -922,7 +927,7 @@ h1 {
   position: relative;
   display: block;
   margin-top: 18px;
-  border-radius: 17px;
+  border-radius: var(--photo-radius);
   overflow: hidden;
 }
 
@@ -1278,7 +1283,7 @@ a.jcard:focus-visible {
   }
 }
 .arhiv-grid.grid-photos img {
-  border-radius: 17px;
+  border-radius: var(--photo-radius);
   object-fit: cover;
   display: block;
   height: auto;
@@ -1336,6 +1341,10 @@ a.jcard:focus-visible {
   column-count: var(--cols, 3);
   column-gap: var(--gap);
 }
+.photo-slider .jcard .media {
+  border-radius: var(--photo-radius);
+  overflow: hidden;
+}
 .photo-slider .slide-grid .jcard {
   display: inline-block;
   width: 100%;
@@ -1343,24 +1352,7 @@ a.jcard:focus-visible {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   margin: 0 0 var(--gap);
-}
-
-.jcard .media {
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-}
-.jcard .media {
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-}
-.jcard .media > a {
-  position: relative;
-  z-index: 2;
-  display: block;
+  vertical-align: top;
 }
 .photo-slider .jcard .media img {
   display: block;
@@ -1479,6 +1471,7 @@ a.jcard:focus-visible {
   aspect-ratio: 16 / 11;
 
   overflow: hidden;
+  border-radius: var(--photo-radius);
 
   box-shadow: none;
 }
@@ -1493,6 +1486,7 @@ a.jcard:focus-visible {
   margin: 0;
 
   overflow: hidden;
+  border-radius: var(--photo-radius);
 
   box-shadow: none;
   aspect-ratio: 5 / 4;
@@ -1540,6 +1534,8 @@ a.jcard:focus-visible {
 .portal-media {
   min-height: 320px;
   background: #fff;
+  border-radius: var(--photo-radius);
+  overflow: hidden;
 }
 .portal-media img {
   width: 100%;

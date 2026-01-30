@@ -280,6 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
           a.appendChild(img);
           img.classList.add("glightbox-bound");
         });
+        // --- Force reflow for Chrome/Brave bug ---
+        grid.offsetHeight;
       });
 
     if (typeof GLightbox !== "undefined") {
@@ -354,26 +356,40 @@ document.addEventListener("DOMContentLoaded", () => {
         let startX = 0;
         let delta = 0;
         let dragging = false;
+        let pointerDown = false;
+        let dragJustHappened = false;
+        const dragStartThreshold = 8;
 
         function onStart(e) {
           pointerId = e.pointerId;
           startX = e.clientX;
           delta = 0;
-          dragging = true;
-          viewport.setPointerCapture(pointerId);
-          setTransition(false);
+          dragging = false;
+          pointerDown = true;
+          dragJustHappened = false;
         }
 
         function onMove(e) {
-          if (!dragging || e.pointerId !== pointerId) return;
+          if (!pointerDown || e.pointerId !== pointerId) return;
           delta = e.clientX - startX;
+          if (!dragging && Math.abs(delta) > dragStartThreshold) {
+            dragging = true;
+            setTransition(false);
+            try {
+              viewport.setPointerCapture(pointerId);
+            } catch (err) {}
+          }
+          if (!dragging) return;
           const pct = (delta / viewport.clientWidth) * 100;
           track.style.transform = `translateX(${-idx * 100 + pct}%)`;
         }
 
         function onEnd(e) {
-          if (!dragging || e.pointerId !== pointerId) return;
+          if (!pointerDown || e.pointerId !== pointerId) return;
+          pointerDown = false;
+          if (!dragging) return;
           dragging = false;
+          dragJustHappened = true;
           try {
             viewport.releasePointerCapture(pointerId);
           } catch (err) {}
@@ -392,6 +408,17 @@ document.addEventListener("DOMContentLoaded", () => {
         viewport.addEventListener("pointermove", onMove);
         viewport.addEventListener("pointerup", onEnd);
         viewport.addEventListener("pointercancel", onEnd);
+        viewport.addEventListener(
+          "click",
+          (e) => {
+            if (dragJustHappened) {
+              e.preventDefault();
+              e.stopPropagation();
+              dragJustHappened = false;
+            }
+          },
+          true,
+        );
       }
 
       update(0);
