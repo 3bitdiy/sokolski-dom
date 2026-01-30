@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sr">
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
   </head>
 
   <body>
@@ -20,15 +23,12 @@
     <header>
       <div class="header-inner">
         <div class="header-row">
+          <!-- hamburger -->
           <button class="hamb" id="openMenu" aria-label="Otvori meni">
             <span class="hamb-lines" aria-hidden="true"></span>
           </button>
 
-          <a
-            class="brand"
-            href="index.html"
-            aria-label="Početna — Sokolski kulturni centar"
-          >
+          <a class="brand" href="index.html" aria-label="Sokolski dom početna">
             <img
               src="assets/img/sokolski-dom-logo.png"
               alt="Sokolski kulturni centar"
@@ -41,139 +41,123 @@
             <a href="index.html">Početna</a>
             <a href="#kontakt">Kontakt</a>
           </nav>
-
-          <!-- <div class="header-cta">
-          <a class="btn" href="index.html#donacije">Podrži</a>
-          <a class="btn primary" href="index.html#poseta">Planiraj posetu</a>
-        </div> -->
         </div>
       </div>
     </header>
 
+    <span
+      id="mobileMenuStatus"
+      class="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+    ></span>
+
     <!-- Mobile menu -->
     <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
       <div class="drawer" role="dialog" aria-modal="true" aria-label="Meni">
-        <div class="drawer-top">
-          <div class="brand" style="gap: 10px">
-            <span
-              class="brand-mark"
-              aria-hidden="true"
-              style="width: 30px; height: 30px"
-            ></span>
-            <span style="font-weight: 500">Meni</span>
-          </div>
-          <button class="btn" id="closeMenu">Zatvori</button>
-        </div>
-
         <nav aria-label="Mobilna navigacija">
           <a href="index.html">Početna</a>
           <a href="#kontakt">Kontakt</a>
-
-          <!-- <div class="drawer-cta">
-          <a class="btn primary" href="index.html#poseta" style="justify-content:center;">Planiraj posetu</a>
-          <a class="btn" href="index.html#donacije" style="justify-content:center;">Podrži</a>
-        </div> -->
         </nav>
       </div>
     </div>
 
+    <!-- Main -->
     <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-media" aria-label="Naslovna fotografija arhiva">
+      <!-- Stage image -->
+      <section class="hero-media" aria-label="Naslovna fotografija arhiva">
+        <div class="stage">
           <img
-            src="assets/img/arhiv/placeholder-800.jpg"
+            src="./assets/img/arhiv/sokolski-dom-arhiv-u-slikama-hero-1920.jpg"
             srcset="
-              assets/img/arhiv/placeholder-480.jpg   480w,
-              assets/img/arhiv/placeholder-800.jpg   800w,
-              assets/img/arhiv/placeholder-1200.jpg 1200w,
-              assets/img/arhiv/placeholder-1600.jpg 1600w
-              assets/img/arhiv/placeholder-2400.jpg 2400w
+              ./assets/img/arhiv/sokolski-dom-arhiv-u-slikama-hero-480.jpg   480w,
+              ./assets/img/arhiv/sokolski-dom-arhiv-u-slikama-hero-800.jpg   800w,
+              ./assets/img/arhiv/sokolski-dom-arhiv-u-slikama-hero-1200.jpg 1200w,
+              ./assets/img/arhiv/sokolski-dom-arhiv-u-slikama-hero-1600.jpg 1600w
             "
-            sizes="(max-width: 520px) 100vw, (max-width: 980px) 100vw, 1200px"
-            alt="Arhiv u slikama — Sokolsko društvo Novi Sad"
+            sizes="100vw"
+            alt="Sokolski dom, Novi Sad"
             loading="lazy"
           />
         </div>
+      </section>
 
-        <div class="container">
-          <div class="hero-grid">
+      <!-- Paper -->
+      <div class="paper" role="document">
+        <!-- HERO intro -->
+        <section class="intro" aria-label="Uvod">
+          <div class="hero-card" role="group" aria-label="Uvod">
+            <div class="hero-pill">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 45 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M35 5H7C5.89543 5 5 5.89543 5 7V38C5 39.1046 5.89543 40 7 40H38C39.1046 40 40 39.1046 40 38V15.0911"
+                  stroke="black"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="panel-kicker mb-0 ml-5"
+                >Arhiv u slikama (1905–2025)</span
+              >
+            </div>
+
             <div>
-              <h1>Arhiv u slikama</h1>
+              <h1>Digitalna fotomonografija Sokolskog društva u Novom Sadu</h1>
               <p class="lead">
-                Digitalna fotomonografija Sokolskog društva u Novom Sadu
-                (1905–2025). Fotografije, plakati i dokumenta kao vizuelna priča
-                o ljudima, idejama i prostoru koji su oblikovali grad.
+                Fotografije, plakati i dokumenta kao vizuelna priča o ljudima,
+                idejama i prostoru koji su oblikovali grad
               </p>
-
-              <div class="hero-actions">
-                <a class="btn primary" href="#p1905">Počni od 1905 →</a>
-                <a class="btn" href="#indeks">Indeks perioda</a>
-                <a class="btn" href="index.html">Nazad na početnu</a>
-              </div>
             </div>
           </div>
+        </section>
+
+        <!-- separator 1 -->
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1012 22.4931H369.928C349.738 21.649 346.411 2 354.162 2C361.913 2 359.774 22.4931 341.558 22.4931H2.00002"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
-      </section>
 
-      <!-- Indeks perioda -->
-      <section class="section" id="indeks">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Indeks perioda</h2>
+        <!-- Indeks perioda -->
+        <section class="panel" id="indeks" aria-label="Indeks perioda">
+          <div class="frame">
+            <div class="tags" aria-label="Indeks perioda">
+              <a class="tag" href="#g1905">1905–1918</a>
+              <a class="tag" href="#g1918">1918–1941</a>
+              <a class="tag" href="#g1945">Posle 1945</a>
+              <a class="tag" href="#g2000">Od 2000</a>
+              <a class="tag" href="#clanovi">Znameniti članovi</a>
+              <a class="tag" href="#zgrada">Zgrada i simbol</a>
+              <a class="tag" href="#uticaj">Kulturni uticaj</a>
+              <a class="tag" href="#uticaj">Značaj projekta</a>
             </div>
           </div>
+        </section>
 
-          <div class="tags" aria-label="Indeks perioda">
-            <a class="tag" href="#uvod">Uvod</a>
-            <a class="tag" href="#p1905">1905–1918</a>
-            <a class="tag" href="#p1918">1918–1941</a>
-            <a class="tag" href="#p1945">Posle 1945</a>
-            <a class="tag" href="#p2000">Od 2000</a>
-            <a class="tag" href="#clanovi">Znameniti članovi</a>
-            <a class="tag" href="#zgrada">Zgrada i simbol</a>
-            <a class="tag" href="#uticaj">Kulturni uticaj</a>
-            <a class="tag" href="#znacaj">Značaj projekta</a>
-            <a class="tag" href="#zakljucak">Zaključak</a>
-          </div>
-        </div>
-      </section>
+        <!-- 0 Uvod -->
+        <section class="panel" id="uvod" aria-label="Kulturni centar">
+          <div class="frame">
+            <!-- <div class="panel-kicker">Kulturni centar</div> -->
+            <h2>UVOD</h2>
 
-      <!-- UVOD -->
-      <section class="section" id="uvod">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Uvod</h2>
-            </div>
-          </div>
-
-          <!-- uvodna fotografija -->
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="media" style="height: 320px">
-              <img
-                src="assets/img/arhiv/placeholder-800.jpg"
-                srcset="
-                  assets/img/arhiv/placeholder-480.jpg   480w,
-                  assets/img/arhiv/placeholder-800.jpg   800w,
-                  assets/img/arhiv/placeholder-1200.jpg 1200w,
-                  assets/img/arhiv/placeholder-1600.jpg 1600w
-                  assets/img/arhiv/placeholder-2400.jpg 2400w
-                "
-                sizes="(max-width: 520px) 100vw, (max-width: 980px) 100vw, 1200px"
-                alt="Arhiv u slikama — uvodna fotografija"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  display: block;
-                "
-                loading="lazy"
-              />
-            </div>
-            <div class="body">
-              <div class="kicker">1905–2025</div>
+            <div class="panel-text">
               <h3>Vizuelna priča o 120 godina trajanja</h3>
               <p>
                 Sokolsko društvo u Novom Sadu više od jednog veka predstavlja
@@ -198,97 +182,71 @@
                 imaju svoje mesto u savremenom životu grada.
               </p>
             </div>
-            <div class="foot">
-              <span class="tag">Fotografije</span>
-              <span class="tag">Dokumenta</span>
-              <span class="tag">Plakati</span>
-            </div>
-          </div>
 
-          <!-- druga uvodna fotografija -->
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width: 520px) 100vw, (max-width: 980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
+            <!-- uvod fotografije -->
+            <div
+              class="arhiv-grid arhiv-grid--tight grid-photos grid-photos-2"
+              aria-label="Sokolski dom 1905–1918"
+            >
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width: 520px) 100vw, (max-width: 980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width: 520px) 100vw, (max-width: 980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- separator 2 -->
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 2.00001H644.072C664.262 2.8441 667.589 22.4931 659.838 22.4931C652.087 22.4931 654.226 2.00001 672.442 2.00001H1012"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
-      </section>
 
-      <!-- 01. 1905–1918 -->
-      <section class="section" id="p1905">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>1905–1918</h2>
-              <p>Osnivanje i rani period</p>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">01</div>
+        <!-- 1 1905-1918 -->
+        <section class="panel" id="g1905" aria-label="1905–1918">
+          <div class="frame">
+            <!-- <div class="panel-kicker">Kulturni centar</div> -->
+            <div class="panel-text">
+              <!-- <div class="kicker">01</div> -->
+              <h2>1905 – 1918</h2>
               <h3>Osnivanje i rani period</h3>
               <p>
                 Sokolsko društvo Novi Sad osnovano je 1905. godine u vremenu
@@ -311,166 +269,131 @@
                 narednim decenijama omogućiti njegov snažan razvoj i uticaj.
               </p>
             </div>
-            <div class="foot">
-              <span class="tag">Osnivači</span>
-              <span class="tag">Vežbe</span>
-              <span class="tag">Dokumenta</span>
-              <span class="tag">Plakati</span>
-            </div>
-          </div>
 
-          <!-- (osnivači, vežbe, dokumenti, plakati) -->
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
+            <!-- 1905-1918 fotografije -->
+            <div
+              class="arhiv-grid arhiv-grid--tight grid-photos grid-photos-2"
+              aria-label="Sokolski dom 1905–1918"
+            >
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
 
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
+            <div
+              class="arhiv-grid arhiv-grid--tight grid-photos grid-photos-2"
+              aria-label="Sokolski dom 1905–1918"
+            >
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
 
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 4"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 5"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1905–1918 — fotografija 6"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
+            <div
+              class="arhiv-grid arhiv-grid--tight grid-photos grid-photos-1"
+              aria-label="Sokolski dom 1905–1918"
+            >
+              <div class="jcard" style="width: 100%; max-width: none">
+                <div class="media">
+                  <img
+                    src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                    srcset="
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                      ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                    "
+                    sizes="(max-width: 980px) 100vw, 50vw"
+                    alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- separator 1 -->
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1012 22.4931H369.928C349.738 21.649 346.411 2 354.162 2C361.913 2 359.774 22.4931 341.558 22.4931H2.00002"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
         </div>
-      </section>
 
-      <!-- 02. 1918–1941 -->
-      <section class="section" id="p1918">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>1918–1941</h2>
-              <p>Između dva svetska rata</p>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">02</div>
-              <h3>Zlatno doba sokolskog društva</h3>
-              <p>
+        <!-- 2 1918–1941 -->
+        <section class="panel" id="g1918" aria-label="1918–1941">
+          <div class="frame">
+            <div class="panel-text">
+              <h2>1918 – 1941</h2>
+              <h3>Između dva svetska rata</h3>
+              <p style="margin-top: 10px; font-weight: 700">
+                Zlatno doba sokolskog društva
+              </p>
+              <p style="margin-top: 10px">
                 Period između dva svetska rata predstavlja zlatno doba Sokolskog
                 društva u Novom Sadu. Društvo se snažno razvija i postaje jedno
                 od najaktivnijih sokolskih centara u tadašnjoj državi. Pored
@@ -493,769 +416,280 @@
                 celinu.
               </p>
             </div>
-            <div class="foot">
-              <span class="tag">Sekcije</span>
-              <span class="tag">Kultura</span>
-              <span class="tag">1936</span>
-              <span class="tag">Tabaković</span>
-            </div>
-          </div>
 
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 4"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 5"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="1918–1941 — fotografija 6"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 03. Posle Drugog svetskog rata -->
-      <section class="section" id="p1945">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Posle Drugog svetskog rata</h2>
-              <p>Period posle 1945</p>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">03</div>
-              <h3>Tiha istrajnost i kontinuitet</h3>
-              <p>
-                Nakon Drugog svetskog rata, rad Društva prolazi kroz
-                organizacione i društvene promene, ali kontinuitet aktivnosti
-                nikada nije u potpunosti prekinut. Sokolska tradicija nastavlja
-                da živi kroz gimnastiku i fizičku kulturu, prilagođavajući se
-                novim društvenim okolnostima.
-              </p>
-              <p style="margin-top: 10px">
-                Sokolski dom ostaje važno mesto okupljanja, a iz njegovih
-                prostora nastaju i razvijaju se druga sportska i kulturna
-                udruženja, čime se dodatno potvrđuje njegova uloga kao izvorišta
-                gradskog sportskog i kulturnog života.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">Kontinuitet</span>
-              <span class="tag">Gimnastika</span>
-              <span class="tag">Zajednica</span>
-            </div>
-          </div>
-
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Posle rata — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Posle rata — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Posle rata — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 04. Od 2000 do danas -->
-      <section class="section" id="p2000">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Od 2000. do danas</h2>
-              <p>Savremeni period</p>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">04</div>
-              <h3>Obnova identiteta i nova dinamika doma</h3>
-              <p>
-                Početkom 21. veka dolazi do obnove sokolskog identiteta i
-                ponovnog povezivanja sa izvornim vrednostima pokreta. Sokolsko
-                društvo „Vojvodina“ ponovo se jasno pozicionira kao nosilac
-                sportskih i kulturnih programa, oslanjajući se na bogato
-                nasleđe, ali i na savremene potrebe zajednice.
-              </p>
-              <p style="margin-top: 10px">
-                Posebno mesto zauzima gimnastika, u kojoj Društvo ostvaruje
-                vrhunske rezultate i godinama važi za jedan od najuspešnijih i
-                najtrofejnijih gimnastičkih kolektiva u Srbiji.
-              </p>
-              <p style="margin-top: 10px">
-                Osnivanjem i razvojem Sokolskog kulturnog centra „Sokolski dom“,
-                prostor doma dobija novu dinamiku. Savremeni programi potvrđuju
-                da sokolsko društvo nije relikt prošlosti, već živa tradicija
-                koja se stalno prilagođava i razvija.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">Gimnastika</span>
-              <span class="tag">Programi</span>
-              <span class="tag">Zajednica</span>
-            </div>
-          </div>
-
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Savremeni period — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Savremeni period — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Savremeni period — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 05. Znameniti članovi -->
-      <section class="section" id="clanovi">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Znameniti članovi Sokolskog društva</h2>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">05</div>
-              <h3>Ljudi koji su oblikovali ugled i nasleđe</h3>
-              <p>
-                Kroz istoriju, Sokolsko društvo u Novom Sadu okupljalo je
-                istaknute pojedince koji su ostavili dubok trag u razvoju grada.
-              </p>
-              <p style="margin-top: 10px">
-                Marko Vilić, prvi predsednik Sokolskog društva u Novom Sadu
-                (1905–1909).<br />
-                Đorđe Tabaković, arhitekta i član Sokolskog društva, autor
-                zgrade Sokolskog doma (1936).<br />
-                Ignjat Pavlas, pravnik i istaknuti društveni radnik, član
-                Sokolskog društva — njegovo ime danas nosi ulica u kojoj se
-                nalazi Sokolski dom.
-              </p>
-              <p style="margin-top: 10px">
-                Pored njih, brojni sportisti, treneri, kulturni radnici i
-                intelektualci vezali su svoj život i rad za Sokolsko društvo,
-                gradeći njegov ugled i nasleđe.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">Vilić</span>
-              <span class="tag">Tabaković</span>
-              <span class="tag">Pavlas</span>
-            </div>
-          </div>
-
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 220px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 360px"
-                  alt="Znameniti članovi — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 220px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 360px"
-                  alt="Znameniti članovi — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 220px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 360px"
-                  alt="Znameniti članovi — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 06. Zgrada i simbol -->
-      <section class="section" id="zgrada">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Sokolski dom — zgrada i simbol</h2>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">06</div>
-              <h3>Arhitektonski simbol Novog Sada</h3>
-              <p>
-                Zgrada Sokolskog doma, delo Đorđa Tabakovića, podignuta 1936.
-                godine, predstavlja jedan od arhitektonskih simbola Novog Sada i
-                zvanično je proglašena spomenikom kulture. Od svog nastanka,
-                zgrada nije bila samo prostor, već živo mesto susreta sporta,
-                kulture i društva.
-              </p>
-              <p style="margin-top: 10px">
-                Sokolski dom je prva kulturna stanica grada – mesto gde su se
-                održavala takmičenja, koncerti, predstave i gradske
-                manifestacije, oblikujući kulturni pejzaž Novog Sada.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">1936</span>
-              <span class="tag">Modernizam</span>
-              <span class="tag">Spomenik kulture</span>
-            </div>
-          </div>
-
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 260px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 480px"
-                  alt="Sokolski dom — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 260px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 480px"
-                  alt="Sokolski dom — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 07. Kulturni uticaj -->
-      <section class="section" id="uticaj">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Kulturni uticaj</h2>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">07</div>
-              <h3>Tradicija dijaloga, stvaralaštva i edukacije</h3>
-              <p>
-                Sokolski kulturni centar „Sokolski dom“ danas ima važnu ulogu u
-                savremenom kulturnom životu Novog Sada. Kroz raznovrsne
-                programe, saradnje i javne događaje, nastavlja se tradicija
-                otvaranja prostora za dijalog, stvaralaštvo i edukaciju.
-              </p>
-              <p style="margin-top: 10px">
-                Kontinuitet delovanja, vidljivost u javnosti i povezanost sa
-                lokalnom zajednicom čine Sokolski dom prepoznatljivim mestom
-                kulturne razmene. Njegova uloga nije samo u očuvanju tradicije,
-                već i u njenom aktivnom tumačenju i prilagođavanju savremenom
-                trenutku.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">Programi</span>
-              <span class="tag">Saradnje</span>
-              <span class="tag">Zajednica</span>
-            </div>
-          </div>
-
-          <div class="arhiv-grid arhiv-grid--wide">
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Kulturni uticaj — fotografija 1"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Kulturni uticaj — fotografija 2"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <div class="jcard" style="width: 100%; max-width: none">
-              <div class="media" style="height: 200px">
-                <img
-                  src="assets/img/arhiv/placeholder-800.jpg"
-                  srcset="
-                    assets/img/arhiv/placeholder-480.jpg   480w,
-                    assets/img/arhiv/placeholder-800.jpg   800w,
-                    assets/img/arhiv/placeholder-1200.jpg 1200w
-                  "
-                  sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 400px"
-                  alt="Kulturni uticaj — fotografija 3"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                  "
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 08. Značaj projekta -->
-      <section class="section" id="znacaj">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Značaj projekta</h2>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">08</div>
-              <h3>Digitalizacija kao javna dostupnost nasleđa</h3>
-              <p>
-                Projekat „Arhiv u slikama“ ima višestruki značaj. On doprinosi
-                očuvanju kulturnog nasleđa, omogućava edukaciju građana i
-                mladih, i jača svest o identitetu Novog Sada. Digitalizacijom
-                arhivske građe, vredni materijali postaju dostupni svima, bez
-                obzira na vreme i prostor.
-              </p>
-              <p style="margin-top: 10px">
-                Ovaj projekat povezuje sportsku, kulturnu i arhitektonsku
-                tradiciju grada u jedinstvenu celinu, nudeći savremen način
-                razumevanja prošlosti. Istovremeno, on predstavlja primer dobre
-                prakse u digitalizaciji kulturne baštine i njenom uključivanju u
-                savremeni kulturni život.
-              </p>
-              <p style="margin-top: 10px">
-                Projekat predstavlja legat ne samo Sokolskog društva, već i
-                samog grada – svedočanstvo o ljudima, idejama i prostorima koji
-                su Novi Sad učinili onim što jeste.
-              </p>
-            </div>
-            <div class="foot">
-              <span class="tag">Digitalizacija</span>
-              <span class="tag">Edukacija</span>
-              <span class="tag">Kulturna baština</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 09. Zaključak -->
-      <section class="section" id="zakljucak">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Zaključak</h2>
-            </div>
-          </div>
-
-          <div class="jcard timeline" style="width: 100%; max-width: none">
-            <div class="body">
-              <div class="kicker">09</div>
-              <h3>Most između generacija</h3>
-              <p>
-                Digitalna fotomonografija „Arhiv u slikama“ nije samo dokument o
-                prošlosti, već živo svedočanstvo o trajnosti jedne ideje. Kroz
-                slike i priče, ona čuva sećanje na ljude, događaje i prostore
-                koji su oblikovali Novi Sad.
-              </p>
-              <p style="margin-top: 10px">
-                Ovo nije samo arhiv – već živa priča o prvih 120 godina
-                trajanja, zajedništva i stvaranja. Sokolsko društvo u Novom Sadu
-                danas stoji kao spona između bogate tradicije i savremenog
-                grada, dokazujući da istorija nije prošlost, već temelj
-                budućnosti.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- KONTAKT -->
-      <section class="section" id="kontakt">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Kontakt</h2>
-            </div>
-          </div>
-
-          <div class="contact-grid">
-            <!-- map -->
+            <!-- 2 1918–1941 fotografije (slider) -->
             <div
-              class="contact-map-wrapper"
-              aria-hidden="false"
-              title="Mapa: Sokolski dom"
+              class="photo-slider"
+              data-per-slide="6"
+              aria-label="Sokolski dom 1918–1941 galerija"
             >
-              <iframe
-                class="contact-map"
-                src="https://www.google.com/maps?q=Ignjata+Pavlasa+2-4+Novi+Sad&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-                aria-label="Mapa lokacije Sokolski dom"
-              ></iframe>
+              <div class="slider-viewport">
+                <div class="slider-track">
+                  <!-- slide 1 -->
+                  <div class="slide">
+                    <div class="slide-grid" style="--cols: 3; --rows: 2">
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-480.jpg   480w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-800.jpg   800w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Sokoli ispred Sokolskog doma u Novom Sadu, pred polazak za Sofiju, 1939."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-480.jpg   480w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-800.jpg   800w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Sokoli ispred Sokolskog doma u Novom Sadu, pred polazak za Sofiju, 1939."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-480.jpg   480w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-800.jpg   800w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Sokoli ispred Sokolskog doma u Novom Sadu, pred polazak za Sofiju, 1939."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-480.jpg   480w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-800.jpg   800w,
+                              ./assets/img/arhiv/1939-Sokoli-ispred-Sokolskog-doma-u-Novom-Sadu-pred-polazak-za-Sofiju-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Sokoli ispred Sokolskog doma u Novom Sadu, pred polazak za Sofiju, 1939."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slide">
+                    <div class="slide-grid" style="--cols: 3; --rows: 2">
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div class="jcard">
+                        <div class="media">
+                          <img
+                            src="./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1600.jpg"
+                            srcset="
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-480.jpg   480w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-800.jpg   800w,
+                              ./assets/img/arhiv/1929-Grupa-sokola-pred-gradskom-kucom-u-Novom-Sadu-1200.jpg 1200w
+                            "
+                            sizes="(max-width: 980px) 100vw, 50vw"
+                            alt="Grupa sokola pred Gradskom kućom u Novom Sadu, 1929."
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="slider-dots"
+                role="tablist"
+                aria-label="Navigacija slajdera"
+              ></div>
             </div>
+          </div>
+        </section>
 
-            <!-- contact card -->
-            <aside class="contact-card" aria-labelledby="contact-title">
-              <div class="card-body">
-                <h3 id="contact-title">Sokolski kulturni centar</h3>
+        <!-- separator 2 -->
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 2.00001H644.072C664.262 2.8441 667.589 22.4931 659.838 22.4931C652.087 22.4931 654.226 2.00001 672.442 2.00001H1012"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
 
-                <address class="contact-meta">
-                  <div>
-                    <strong>Adresa:</strong> Ignjata Pavlasa br. 2‑4, Novi Sad
-                  </div>
-                  <div>
-                    <strong>Telefon:</strong>
-                    <a href="tel:+381123456789">012 345 6789</a>
-                  </div>
-                  <div>
-                    <strong>Email:</strong>
-                    <a href="mailto:office@sokolskidom.com"
-                      >office@sokolskidom.com</a
-                    >
-                  </div>
-                </address>
+        <!-- KONTAKT -->
+        <section class="panel" id="kontakt" aria-label="Kontakt">
+          <div class="frame">
+            <h2>Kontakt</h2>
 
-                <!-- <div class="hours">
+            <div class="contact-grid">
+              <!-- map -->
+              <div
+                class="contact-map-wrapper"
+                aria-hidden="false"
+                title="Mapa: Sokolski dom"
+              >
+                <iframe
+                  class="contact-map"
+                  loading="lazy"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.622561840174!2d19.845992176225163!3d45.25542464734451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1068c968f303%3A0x7fecb382d208d1f1!2z0KHQvtC60L7Qu9GB0LrQuCDQtNC-0LwsINCY0LPRmtCw0YLQsCDQn9Cw0LLQu9Cw0YHQsCwg0J3QvtCy0Lgg0KHQsNC0IDIxMDAw!5e0!3m2!1ssr!2srs!4v1769452917781!5m2!1ssr!2srs"
+                  style="border: 0"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  aria-label="Mapa lokacije Sokolski dom"
+                ></iframe>
+              </div>
+
+              <!-- contact card -->
+              <aside class="contact-card" aria-labelledby="contact-title">
+                <div class="card-body">
+                  <h3 id="contact-title">Sokolski kulturni centar</h3>
+
+                  <address class="contact-meta">
+                    <div>
+                      <strong>Adresa:</strong> Ignjata Pavlasa br. 2‑4, Novi Sad
+                    </div>
+                    <div>
+                      <strong>Telefon:</strong>
+                      <a href="tel:+381123456789">012 345 6789</a>
+                    </div>
+                    <div>
+                      <strong>Email:</strong>
+                      <a href="mailto:office@sokolskidom.com"
+                        >office@sokolskidom.com</a
+                      >
+                    </div>
+                  </address>
+
+                  <!-- <div class="hours">
                   <div class="kicker">Radno vreme</div>
                   <ul>
                     <li>Ponedeljak — Petak: 09:00 — 18:00</li>
@@ -1264,29 +698,31 @@
                   </ul>
                 </div> -->
 
-                <div class="contact-actions">
-                  <a
-                    class="btn primary"
-                    href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Otvori u Google Maps</a
-                  >
+                  <div class="contact-actions">
+                    <a
+                      class="btn primary"
+                      href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Otvori u Google Maps</a
+                    >
+                  </div>
                 </div>
-              </div>
-            </aside>
-          </div>
-          <!-- .contact-grid -->
+              </aside>
+            </div>
 
-          <!-- CTA buttons -->
-          <div class="contact-cta" aria-hidden="false" style="margin-top: 16px">
-            <div class="contact-cta-row">
-              <a class="btn primary" href="index.html">Početna</a>
-              <a class="btn" href="#top">Nazad na vrh</a>
+            <!-- .contact-grid -->
+            <div class="contact-cta" aria-hidden="false">
+              <div class="contact-cta-row">
+                <a class="btn primary" href="arhiv-u-slikama.html"
+                  >Arhiv u slikama</a
+                >
+                <a class="btn" href="#top">Nazad na vrh</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <!-- Footer -->
       <footer>
@@ -1311,12 +747,14 @@
               "
             >
               <a href="index.html">Početna</a>
+              <a href="arhiv-u-slikama.html">Arhiv u slikama</a>
               <a href="#kontakt">Kontakt</a>
             </div>
           </div>
         </div>
       </footer>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script type="module" src="./assets/js/main.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sr">
   <head>
     <meta charset="utf-8" />
@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
   </head>
 
   <body>
@@ -27,11 +26,10 @@
           </button>
 
           <a class="brand" href="index.html" aria-label="Sokolski dom početna">
-            <img
-              src="assets/img/sokolski-dom-logo.png"
+            <img src="assets/img/sokolski-dom-logo.png"
               alt="Sokolski kulturni centar"
               class="brand-logo"
-            />
+            / data-lightbox-src="assets/img/sokolski-dom-logo.jpg">
             <span class="sr-only">Sokolski kulturni centar</span>
           </a>
 
@@ -43,21 +41,16 @@
       </div>
     </header>
 
+    <span
+      id="mobileMenuStatus"
+      class="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+    ></span>
+
     <!-- Mobile menu -->
     <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
       <div class="drawer" role="dialog" aria-modal="true" aria-label="Meni">
-        <div class="drawer-top">
-          <div class="brand" style="gap: 10px">
-            <span
-              class="brand-mark"
-              aria-hidden="true"
-              style="width: 30px; height: 30px"
-            ></span>
-            <span style="font-weight: 500">Meni</span>
-          </div>
-          <button class="btn" id="closeMenu">Zatvori</button>
-        </div>
-
         <nav aria-label="Mobilna navigacija">
           <a href="arhiv-u-slikama.html">Arhiv u slikama</a>
           <a href="#kontakt">Kontakt</a>
@@ -67,64 +60,98 @@
 
     <!-- Main -->
     <main id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <!-- hero image -->
-        <div class="hero-media" aria-label="Hero fotografija">
-          <img
-            src="assets/img/placeholder-800.jpg"
+      <!-- Stage image -->
+      <section
+        class="hero-media"
+        aria-label="Sokolski dom, Novi Sad, crtež Đorđa Tabakovića"
+      >
+        <div class="stage">
+          <img src="./assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-1200.jpg"
             srcset="
-              assets/img/placeholder-480.jpg   480w,
-              assets/img/placeholder-800.jpg   800w,
-              assets/img/placeholder-1200.jpg 1200w,
-              assets/img/placeholder-1600.jpg 1200w
+              ./assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-480.jpg   480w,
+              ./assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-800.jpg   800w,
+              ./assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-1200.jpg 1200w,
+              ./assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-1600.jpg 1600w
             "
-            sizes="(max-width: 520px) 100vw, (max-width: 980px) 100vw, 1200px"
+            sizes="100vw"
             alt="Sokolski dom, Novi Sad"
             loading="lazy"
-          />
-        </div>
-
-        <!-- hero text -->
-        <div class="container">
-          <div class="hero-grid">
-            <div>
-              <!-- SLOGAN kao pill -->
-              <span class="pill">Kultura i pokret pod istim krovom.</span>
-
-              <h1>Sokolski kulturni centar „Sokolski dom“</h1>
-              <p class="lead">
-                Prostor u kojem se više od jednog veka susreću kultura, sport i
-                zajedništvo. Mesto gde nasleđe grada Novog Sada živi kroz
-                savremene programe.
-              </p>
-              <div class="hero-actions">
-                <a class="btn primary" href="arhiv-u-slikama.html"
-                  >Pogledaj arhiv u slikama</a
-                >
-                <a class="btn" href="#predstavljanje">O centru</a>
-                <a class="btn" href="#kontakt">Kontakt</a>
-              </div>
-            </div>
-          </div>
+          / data-lightbox-src="assets/img/sokolski-dom-djordje-tabakovic-crtez-cb-2400.jpg">
         </div>
       </section>
 
-      <!-- PREDSTAVLJANJE -->
-      <section class="section" id="predstavljanje">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Savremena kultura u dijalogu sa nasleđem</h2>
+      <!-- Paper -->
+      <div class="paper" role="document">
+        <!-- HERO intro -->
+        <section class="intro" aria-label="Uvod">
+          <div class="hero-card" role="group" aria-label="Uvod">
+            <div class="hero-pill">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 45 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M36.5693 12.0911C38.725 15.0002 40 18.6012 40 22.5C40 32.165 32.165 40 22.5 40C12.835 40 5 32.165 5 22.5C5 12.835 12.835 5 22.5 5C24.298 5 26.0326 5.27115 27.6653 5.77479"
+                  stroke="black"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <span class="panel-kicker mb-0 ml-5"
+                >Kultura i pokret pod istim krovom</span
+              >
+            </div>
+
+            <h1>Sokolski kulturni centar „Sokolski dom“</h1>
+            <p class="lead">
+              Prostor u kojem se više od jednog veka susreću kultura, sport i
+              zajedništvo. Mesto gde nasleđe grada Novog Sada živi kroz
+              savremene programe.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="arhiv-u-slikama.html"
+                >Pogledaj arhiv u slikama</a
+              >
+              <a class="btn" href="#predstavljanje">O centru</a>
+              <a class="btn" href="#kontakt">Kontakt</a>
             </div>
           </div>
+        </section>
 
-          <div class="jcard timeline">
-            <div class="body">
-              <div class="kicker">Osnovan 2018</div>
-              <h3>Kulturni centar u okviru Sokolskog doma</h3>
+        <div class="sep" aria-hidden="true">
+          <!-- <svg viewBox="0 0 1010 21" width="100%" height="21" preserveAspectRatio="none">
+          <path d="M0 10.5 H1010" stroke="currentColor" stroke-width="4" fill="none" />
+          <circle cx="505" cy="10.5" r="6" fill="#fff" stroke="currentColor" stroke-width="4" />
+        </svg> -->
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1012 22.4931H369.928C349.738 21.649 346.411 2 354.162 2C361.913 2 359.774 22.4931 341.558 22.4931H2.00002"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
 
-              <p>
+        <!-- PREDSTAVLJANJE -->
+        <section class="panel" id="predstavljanje" aria-label="Kulturni centar">
+          <div class="frame">
+            <div class="panel-kicker">Kulturni centar</div>
+            <h2>Savremena kultura u dijalogu sa nasleđem</h2>
+
+            <div class="panel-text">
+              <p class="lead">
                 Sokolski kulturni centar „Sokolski dom“ osnovan je 2018. godine
                 u Novom Sadu, u okviru Sokolskog društva „Vojvodina“, sa ciljem
                 oživljavanja kulturnog života u prostoru Sokolskog doma iz 1936.
@@ -133,8 +160,7 @@
                 udruženje građana posvećeno savremenom kulturnom stvaralaštvu u
                 dijalogu sa bogatim istorijskim i nematerijalnim nasleđem grada.
               </p>
-
-              <p class="mt-10">
+              <p>
                 Programi centra obuhvataju izložbe, edukativne i umetničke
                 sadržaje, rad sa decom i mladima, inkluzivne i ekološke
                 projekte, kao i aktivnosti koje povezuju kulturu, gimnastiku,
@@ -144,240 +170,283 @@
               </p>
             </div>
 
-            <div class="foot">
-              <span class="tag">Kultura</span>
-              <span class="tag">Gimnastika</span>
-              <span class="tag">Zajednica</span>
-              <span class="tag">Nasleđe</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SOKOLSKI DOM DANAS -->
-      <section class="section" id="danas">
-        <div class="container">
-          <div class="split">
-            <!-- LEFT: text -->
-            <div>
-              <div class="section-head">
-                <div>
-                  <h2>Sokolski dom danas</h2>
-                  <p>Živ prostor otvoren za programe, saradnje i zajednicu.</p>
-                </div>
-              </div>
-
-              <div class="jcard timeline">
-                <div class="body">
-                  <div class="kicker">Živ prostor</div>
-                  <h3>Otvoren za programe, saradnje i zajednicu</h3>
-
-                  <p>
-                    Sokolski dom danas je živ prostor otvoren za različite
-                    kulturne, umetničke i edukativne programe, koji se realizuju
-                    u saradnji sa umetnicima, istraživačima, sportistima i
-                    organizacijama iz Novog Sada i regiona.
-                  </p>
-
-                  <p class="mt-10">
-                    Pored kulturnih i umetničkih sadržaja, gimnastika zauzima
-                    posebno mesto u svakodnevnom životu Sokolskog doma,
-                    oslanjajući se na višedecenijsku tradiciju, vrhunske
-                    prostorne uslove i stručne kapacitete koji ovaj prostor čine
-                    jednim od najznačajnijih centara gimnastike u zemlji.
-                  </p>
-
-                  <p class="mt-10">
-                    Centar razvija programe namenjene deci i mladima,
-                    uključujući inkluzivne radionice, savremeni cirkus, ekološku
-                    edukaciju i rad sa osetljivim grupama, sa ciljem podsticanja
-                    kreativnosti, solidarnosti i aktivnog odnosa prema
-                    zajednici.
-                  </p>
-
-                  <p class="mt-10">
-                    Zahvaljujući aktivnostima udruženja, Sokolski dom je prošao
-                    kroz značajna unapređenja, uključujući poboljšanje
-                    energetske efikasnosti i prilagođavanje prostora osobama sa
-                    invaliditetom, čime je dodatno ojačana njegova uloga kao
-                    javnog i dostupnog kulturnog prostora.
-                  </p>
-                </div>
-
-                <div class="foot">
-                  <span class="tag">Programi</span>
-                  <span class="tag">Deca i mladi</span>
-                  <span class="tag">Inkluzija</span>
-                  <span class="tag">Energetska efikasnost</span>
-                  <span class="tag">Pristupačnost</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- RIGHT: photo grid -->
-            <div>
-              <div class="present-grid-horizontal">
-                <!-- BIG -->
-                <figure class="present-item present-item--big">
-                  <img
-                    src="assets/img/placeholder-800.jpg"
-                    srcset="
-                      assets/img/placeholder-480.jpg   480w,
-                      assets/img/placeholder-800.jpg   800w,
-                      assets/img/placeholder-1200.jpg 1200w
-                    "
-                    sizes="(max-width:520px) 100vw, (max-width:980px) 50vw, 560px"
-                    alt="Sokolski dom danas — gimnastika"
-                    loading="lazy"
+            <div class="pillars" aria-label="Stubovi programa">
+              <div class="pillar">
+                <!-- <svg class="pillar-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="3" />
+              </svg> -->
+                <svg
+                  class="pillar-ico"
+                  width="53"
+                  height="53"
+                  viewBox="0 0 53 53"
+                  fill="none"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="26.0471"
+                    cy="26.0471"
+                    r="21.0471"
+                    stroke="black"
+                    stroke-width="10"
                   />
-                </figure>
-
-                <!-- SMALL ROW -->
-                <div class="present-row">
-                  <figure class="present-item">
-                    <img
-                      src="assets/img/placeholder-800.jpg"
-                      srcset="
-                        assets/img/placeholder-480.jpg   480w,
-                        assets/img/placeholder-800.jpg   800w,
-                        assets/img/placeholder-1200.jpg 1200w
-                      "
-                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
-                      alt="Rad sa decom"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <figure class="present-item">
-                    <img
-                      src="assets/img/placeholder-800.jpg"
-                      srcset="
-                        assets/img/placeholder-480.jpg   480w,
-                        assets/img/placeholder-800.jpg   800w,
-                        assets/img/placeholder-1200.jpg 1200w
-                      "
-                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
-                      alt="Radionice i savremeni programi"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <figure class="present-item">
-                    <img
-                      src="assets/img/placeholder-800.jpg"
-                      srcset="
-                        assets/img/placeholder-480.jpg   480w,
-                        assets/img/placeholder-800.jpg   800w,
-                        assets/img/placeholder-1200.jpg 1200w
-                      "
-                      sizes="(max-width:520px) 100vw, (max-width:980px) 33vw, 200px"
-                      alt="Zajednica i javni događaji"
-                      loading="lazy"
-                    />
-                  </figure>
-                </div>
+                </svg>
+                <span>Kultura</span>
+              </div>
+              <div class="pillar">
+                <!-- <svg class="pillar-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 18 C8 8, 16 8, 20 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg> -->
+                <svg
+                  class="pillar-ico"
+                  width="51"
+                  height="45"
+                  viewBox="0 0 51 45"
+                  fill="none"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.00053 40C5.00053 40 9.42494 5 25.2078 5C40.9906 5 45.4151 40 45.4151 40"
+                    stroke="black"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span>Gimnastika</span>
+              </div>
+              <div class="pillar">
+                <!-- <svg class="pillar-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 18 L12 6 L20 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+              </svg> -->
+                <svg
+                  class="pillar-ico"
+                  width="51"
+                  height="43"
+                  viewBox="0 0 51 43"
+                  fill="none"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.00084 38L23.476 6C24.2458 4.66666 26.1703 4.66667 26.9401 6L45.4154 38"
+                    stroke="black"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span>Zajednica</span>
+              </div>
+              <div class="pillar">
+                <!-- <svg class="pillar-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 18 L12 12 L18 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                <path d="M12 12 V6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              </svg> -->
+                <svg
+                  class="pillar-ico"
+                  width="51"
+                  height="45"
+                  viewBox="0 0 51 45"
+                  fill="none"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.00006 40C5.00006 40 35.5966 5 25.2073 5C14.818 5 45.4146 40 45.4146 40"
+                    stroke="black"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span>Nasleđe</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Arhiv u slikama link -->
-      <section class="section" id="arhiv">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>120 godina Sokolskog društva u Novom Sadu</h2>
-              <p>
-                Digitalna fotomonografija „Arhiv u slikama“ donosi vizuelnu
-                priču o ljudima, idejama i prostoru koji su oblikovali grad.
-              </p>
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 2.00001H644.072C664.262 2.8441 667.589 22.4931 659.838 22.4931C652.087 22.4931 654.226 2.00001 672.442 2.00001H1012"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <!-- SOKOLSKI DOM DANAS -->
+        <section class="panel" id="danas" aria-label="Sokolski dom danas">
+          <div class="frame">
+            <div class="panel-kicker">
+              Živ prostor otvoren za programe, saradnje i zajednicu.
+            </div>
+            <h2>Sokolski dom danas</h2>
+
+            <div class="panel-split">
+              <div class="panel-text">
+                <!-- <h3 class="subhead">Otvoren za programe, saradnje i zajednicu</h3> -->
+                <p class="lead">
+                  Sokolski dom danas je živ prostor otvoren za različite
+                  kulturne, umetničke i edukativne programe, koji se realizuju u
+                  saradnji sa umetnicima, istraživačima, sportistima i
+                  organizacijama iz Novog Sada i regiona.
+                </p>
+                <p>
+                  Pored kulturnih i umetničkih sadržaja, gimnastika zauzima
+                  posebno mesto u svakodnevnom životu Sokolskog doma,
+                  oslanjajući se na višedecenijsku tradiciju, vrhunske prostorne
+                  uslove i stručne kapacitete koji ovaj prostor čine jednim od
+                  najznačajnijih centara gimnastike u zemlji.
+                </p>
+                <p>
+                  Centar razvija programe namenjene deci i mladima, uključujući
+                  inkluzivne radionice, savremeni cirkus, ekološku edukaciju i
+                  rad sa osetljivim grupama, sa ciljem podsticanja kreativnosti,
+                  solidarnosti i aktivnog odnosa prema zajednici.
+                </p>
+                <p>
+                  Zahvaljujući aktivnostima udruženja, Sokolski dom je prošao
+                  kroz značajna unapređenja, uključujući poboljšanje energetske
+                  efikasnosti i prilagođavanje prostora osobama sa
+                  invaliditetom, čime je dodatno ojačana njegova uloga kao
+                  javnog i dostupnog kulturnog prostora.
+                </p>
+              </div>
+
+              <figure
+                class="panel-media"
+                aria-label="Fotografija: Sokolski dom danas"
+              >
+                <img src="assets/img/sokolski-dom-danas-860.jpg"
+                  srcset="
+                    assets/img/sokolski-dom-danas-480.jpg 480w,
+                    assets/img/sokolski-dom-danas-860.jpg 860w
+                  "
+                  sizes="(max-width: 980px) 100vw, 495px"
+                  alt="Sokolski dom danas — programi"
+                  loading="lazy"
+                / data-lightbox-src="assets/img/sokolski-dom-danas-860.jpg">
+              </figure>
             </div>
           </div>
+        </section>
 
-          <a class="portal" href="arhiv-u-slikama.html">
-            <div class="portal-media">
-              <img
-                src="assets/img/placeholder-800.jpg"
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1012 22.4931H369.928C349.738 21.649 346.411 2 354.162 2C361.913 2 359.774 22.4931 341.558 22.4931H2.00002"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <!-- Arhiv u slikama link -->
+        <section class="panel" id="arhiv" aria-label="Arhiv u slikama">
+          <div class="frame center">
+            <div class="panel-kicker center">Digitalna fotomonografija</div>
+            <h2 class="center">120 godina Sokolskog društva u Novom Sadu</h2>
+            <p class="lead center">
+              Prvih 120 godina postojanja: 1905–2025. Fotografije, dokumenta i
+              plakati na jednom mestu.
+            </p>
+
+            <a class="archive-card" href="arhiv-u-slikama.html">
+              <img src="./assets/img/sokolski-dom-120-godina-1400.jpg"
                 srcset="
-                  assets/img/placeholder-480.jpg   480w,
-                  assets/img/placeholder-800.jpg   800w,
-                  assets/img/placeholder-1200.jpg 1200w
+                  ./assets/img/sokolski-dom-120-godina-480.jpg   480w,
+                  ./assets/img/sokolski-dom-120-godina-800.jpg   800w,
+                  ./assets/img/sokolski-dom-120-godina-1200.jpg 1200w,
+                  ./assets/img/sokolski-dom-120-godina-1600.jpg 1600w
                 "
-                sizes="(max-width:520px) 100vw, (max-width:980px) 50vw, 560px"
-                alt="Arhiv u slikama — arhivska fotografija"
+                sizes="(max-width: 980px) 100vw, 1010px"
+                alt="Arhiv u slikama — naslovna fotografija"
                 loading="lazy"
-              />
-            </div>
-
-            <div class="portal-body">
-              <div class="kicker">Digitalna fotomonografija</div>
-              <h3>Arhiv u slikama</h3>
-              <p>
-                Prvih 120 godina postojanja: 1905–2025. Fotografije, dokumenta i
-                plakati na jednom mestu.
-              </p>
-
-              <div class="portal-foot">
-                <span class="tag">1905–2025</span>
-                <span class="tag">Fotografije</span>
-                <span class="tag">Dokumenta</span>
-                <span class="tag">Plakati</span>
-                <span class="tag">Pogledaj →</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- KONTAKT -->
-      <section class="section" id="kontakt">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <h2>Kontakt</h2>
-            </div>
+              / data-lightbox-src="assets/img/sokolski-dom-120-godina-1400.jpg">
+              <span class="archive-cta btn">Pogledaj arhiv u slikama</span>
+            </a>
+            <!-- <div class="archive-cta mob btn">Pogledaj arhiv u slikama</div> -->
           </div>
+        </section>
 
-          <div class="contact-grid">
-            <!-- map -->
-            <div
-              class="contact-map-wrapper"
-              aria-hidden="false"
-              title="Mapa: Sokolski dom"
-            >
-              <iframe
-                class="contact-map"
-                src="https://www.google.com/maps?q=Ignjata+Pavlasa+2-4+Novi+Sad&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen
-                aria-label="Mapa lokacije Sokolski dom"
-              ></iframe>
-            </div>
+        <div class="sep" aria-hidden="true">
+          <svg
+            width="1014"
+            height="25"
+            viewBox="0 0 1014 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 2.00001H644.072C664.262 2.8441 667.589 22.4931 659.838 22.4931C652.087 22.4931 654.226 2.00001 672.442 2.00001H1012"
+              stroke="black"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
 
-            <!-- contact card -->
-            <aside class="contact-card" aria-labelledby="contact-title">
-              <div class="card-body">
-                <h3 id="contact-title">Sokolski kulturni centar</h3>
+        <!-- KONTAKT -->
+        <section class="panel" id="kontakt" aria-label="Kontakt">
+          <div class="frame">
+            <h2>Kontakt</h2>
 
-                <address class="contact-meta">
-                  <div>
-                    <strong>Adresa:</strong> Ignjata Pavlasa br. 2‑4, Novi Sad
-                  </div>
-                  <div>
-                    <strong>Telefon:</strong>
-                    <a href="tel:+381123456789">012 345 6789</a>
-                  </div>
-                  <div>
-                    <strong>Email:</strong>
-                    <a href="mailto:office@sokolskidom.com"
-                      >office@sokolskidom.com</a
-                    >
-                  </div>
-                </address>
+            <div class="contact-grid">
+              <!-- map -->
+              <div
+                class="contact-map-wrapper"
+                aria-hidden="false"
+                title="Mapa: Sokolski dom"
+              >
+                <iframe
+                  class="contact-map"
+                  loading="lazy"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.622561840174!2d19.845992176225163!3d45.25542464734451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1068c968f303%3A0x7fecb382d208d1f1!2z0KHQvtC60L7Qu9GB0LrQuCDQtNC-0LwsINCY0LPRmtCw0YLQsCDQn9Cw0LLQu9Cw0YHQsCwg0J3QvtCy0Lgg0KHQsNC0IDIxMDAw!5e0!3m2!1ssr!2srs!4v1769452917781!5m2!1ssr!2srs"
+                  style="border: 0"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  aria-label="Mapa lokacije Sokolski dom"
+                ></iframe>
+              </div>
 
-                <!-- <div class="hours">
+              <!-- contact card -->
+              <aside class="contact-card" aria-labelledby="contact-title">
+                <div class="card-body">
+                  <h3 id="contact-title">Sokolski kulturni centar</h3>
+
+                  <address class="contact-meta">
+                    <div>
+                      <strong>Adresa:</strong> Ignjata Pavlasa br. 2‑4, Novi Sad
+                    </div>
+                    <div>
+                      <strong>Telefon:</strong>
+                      <a href="tel:+381123456789">012 345 6789</a>
+                    </div>
+                    <div>
+                      <strong>Email:</strong>
+                      <a href="mailto:office@sokolskidom.com"
+                        >office@sokolskidom.com</a
+                      >
+                    </div>
+                  </address>
+
+                  <!-- <div class="hours">
                   <div class="kicker">Radno vreme</div>
                   <ul>
                     <li>Ponedeljak — Petak: 09:00 — 18:00</li>
@@ -386,31 +455,31 @@
                   </ul>
                 </div> -->
 
-                <div class="contact-actions">
-                  <a
-                    class="btn primary"
-                    href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Otvori u Google Maps</a
-                  >
+                  <div class="contact-actions">
+                    <a
+                      class="btn primary"
+                      href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Otvori u Google Maps</a
+                    >
+                  </div>
                 </div>
-              </div>
-            </aside>
-          </div>
-          <!-- .contact-grid -->
+              </aside>
+            </div>
 
-          <!-- CTA buttons -->
-          <div class="contact-cta" aria-hidden="false" style="margin-top: 16px">
-            <div class="contact-cta-row">
-              <a class="btn primary" href="arhiv-u-slikama.html"
-                >Arhiv u slikama</a
-              >
-              <a class="btn" href="#top">Nazad na vrh</a>
+            <!-- .contact-grid -->
+            <div class="contact-cta" aria-hidden="false">
+              <div class="contact-cta-row">
+                <a class="btn primary" href="arhiv-u-slikama.html"
+                  >Arhiv u slikama</a
+                >
+                <a class="btn" href="#top">Nazad na vrh</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <!-- Footer -->
       <footer>
