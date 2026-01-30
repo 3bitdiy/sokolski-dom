@@ -2126,7 +2126,7 @@ footer {
   --page-bg: #fff;
   --paper-overlap: 140px;
   --paper-pad: 60px;
-  --paper-shadow: 0 18px 48px rgba(0, 0, 0, 0.06);
+  --paper-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
 }
 
 .hero-media {
