@@ -2241,3 +2241,43 @@ header.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
+
+/* Portrait photos — responsive */
+.arhiv-grid.portrait-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px; /* usklađeno sa ostalim galerijama (horizontalni i vertikalni razmak) */
+  align-items: start;
+}
+
+.arhiv-grid.portrait-photos .jcard {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 2 / 3;
+  display: block;
+}
+
+.arhiv-grid.portrait-photos .jcard .media {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 150%; /* fallback za 2/3 portrait */
+  overflow: hidden;
+  border-radius: var(--photo-radius);
+}
+
+.arhiv-grid.portrait-photos .jcard .media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .arhiv-grid.portrait-photos {
+    grid-template-columns: 1fr;
+    gap: 14px; /* isti vertikalni razmak kada su slike jedna ispod druge */
+  }
+}
