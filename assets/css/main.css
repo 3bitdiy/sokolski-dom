@@ -1350,9 +1350,6 @@ a.jcard:focus-visible {
   overflow: hidden;
   aspect-ratio: 4 / 3;
 }
-.photo-slider .slide-grid .jcard {
-  /* Grid layout handles spacing via gap property */
-}
 .photo-slider .jcard .media img {
   display: block;
   width: 100%;
