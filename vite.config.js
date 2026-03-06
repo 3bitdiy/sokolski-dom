@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
@@ -9,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         arhiv: resolve(__dirname, "arhiv-u-slikama.html"),
+        projekti: resolve(__dirname, "projekti.html"),
       },
     },
   },
