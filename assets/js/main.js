@@ -285,61 +285,186 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     if (typeof GLightbox !== "undefined") {
-      GLightbox({ selector: ".glightbox", touchNavigation: true, loop: false });
+      // store instance so we can reload after dynamic DOM changes
+      try {
+        window._gLight = GLightbox({
+          selector: ".glightbox",
+          touchNavigation: true,
+          loop: false,
+        });
+      } catch (e) {
+        // fallback: initialize without storing
+        GLightbox({
+          selector: ".glightbox",
+          touchNavigation: true,
+          loop: false,
+        });
+      }
     }
 
     document.querySelectorAll(".photo-slider").forEach((ps, pi) => {
       const track = ps.querySelector(".slider-track");
       if (!track) return;
-      const slides = Array.from(track.children);
+
       const dotsWrap = ps.querySelector(".slider-dots");
       if (!dotsWrap) return;
 
+      // collect all card nodes (flatten existing slides)
+      const cards = Array.from(ps.querySelectorAll(".slide-grid .jcard")).map(
+        (c) => c.cloneNode(true),
+      );
+
+      // create controls
       const prevBtn = document.createElement("button");
       prevBtn.type = "button";
-      prevBtn.className = "slider-arrow prev";
+      prevBtn.className = "slider-arrow prev gprev gbtn";
       prevBtn.setAttribute("aria-label", "Prethodni slajd");
-      prevBtn.innerHTML = "‹";
+      // use the same SVG as GLightbox next button (we'll flip it in CSS for prev)
+      prevBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"/></g></svg>`;
 
       const nextBtn = document.createElement("button");
       nextBtn.type = "button";
-      nextBtn.className = "slider-arrow next";
+      nextBtn.className = "slider-arrow next gnext gbtn";
       nextBtn.setAttribute("aria-label", "Sledeći slajd");
-      nextBtn.innerHTML = "›";
-
-      ps.appendChild(prevBtn);
-      ps.appendChild(nextBtn);
+      nextBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 477.175 477.175"><g><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"/></g></svg>`;
 
       const counter = document.createElement("div");
       counter.className = "slider-counter";
       counter.setAttribute("aria-hidden", "true");
       ps.appendChild(counter);
 
-      slides.forEach((_, i) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "slider-dot";
-        btn.setAttribute("aria-label", `Prikaži slajd ${i + 1}`);
-        if (i === 0) btn.classList.add("active");
-        btn.addEventListener("click", () => update(i));
-        dotsWrap.appendChild(btn);
-      });
-
+      let slides = [];
       let idx = 0;
+      let currentPerPage = null;
+
+      function perPageForWidth(w) {
+        if (w >= 1280) return 6; // 3x2
+        if (w >= 768) return 4; // 2x2
+        return 1; // 1x1
+      }
+
+      function buildSlides(perPage) {
+        // clear track
+        track.innerHTML = "";
+        slides = [];
+
+        for (let i = 0; i < cards.length; i += perPage) {
+          const group = cards.slice(i, i + perPage);
+          const slide = document.createElement("div");
+          slide.className = "slide";
+          const grid = document.createElement("div");
+          grid.className = "slide-grid";
+          // set cols/rows for visual layout
+          if (perPage === 6) grid.style.setProperty("--cols", 3);
+          else if (perPage === 4) grid.style.setProperty("--cols", 2);
+          else grid.style.setProperty("--cols", 1);
+          // append cards
+          group.forEach((c) => grid.appendChild(c.cloneNode(true)));
+          slide.appendChild(grid);
+          track.appendChild(slide);
+          slides.push(slide);
+        }
+
+        // rebuild dots
+        dotsWrap.innerHTML = "";
+        if (perPage >= 6) {
+          // desktop: show dots
+          slides.forEach((_, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "slider-dot";
+            btn.setAttribute("aria-label", `Prikaži slajd ${i + 1}`);
+            btn.addEventListener("click", () => update(i));
+            dotsWrap.appendChild(btn);
+          });
+          dotsWrap.style.display = "";
+          counter.style.display = "none";
+          // ensure overlay (large) arrows are present for desktop layout
+          if (!ps.contains(prevBtn)) ps.appendChild(prevBtn);
+          if (!ps.contains(nextBtn)) ps.appendChild(nextBtn);
+          prevBtn.style.display = "";
+          nextBtn.style.display = "";
+        } else {
+          // tablet/mobile: hide dots, show fraction counter
+          dotsWrap.style.display = "none";
+          counter.style.display = "";
+          // remove overlay arrows when counter mode is active to avoid duplicates
+          try {
+            if (ps.contains(prevBtn)) prevBtn.remove();
+            if (ps.contains(nextBtn)) nextBtn.remove();
+          } catch (e) {}
+        }
+
+        // reset index if out of range
+        idx = Math.max(0, Math.min(idx, slides.length - 1));
+
+        // toggle counter/inline arrows state
+        // Use a dedicated span for fraction text so updates don't wipe controls
+        if (perPage < 6) {
+          ps.classList.add("has-counter");
+          // reset counter contents and create small arrows + text span
+          counter.innerHTML = "";
+
+          const smallPrev = document.createElement("button");
+          smallPrev.type = "button";
+          smallPrev.className = "slider-arrow small small-prev";
+          smallPrev.setAttribute("aria-label", "Prethodni slajd");
+          smallPrev.innerHTML = "";
+          smallPrev.addEventListener("click", () => update(idx - 1));
+
+          const text = document.createElement("span");
+          text.className = "slider-counter-text";
+
+          const smallNext = document.createElement("button");
+          smallNext.type = "button";
+          smallNext.className = "slider-arrow small small-next";
+          smallNext.setAttribute("aria-label", "Sledeći slajd");
+          smallNext.innerHTML = "";
+          smallNext.addEventListener("click", () => update(idx + 1));
+
+          counter.appendChild(smallPrev);
+          counter.appendChild(text);
+          counter.appendChild(smallNext);
+        } else {
+          ps.classList.remove("has-counter");
+          counter.innerHTML = "";
+        }
+
+        // ensure counter text and dots are updated after controls are built
+        update(idx, false);
+
+        // If GLightbox instance exists, reload it so newly-cloned anchors are bound
+        try {
+          if (window._gLight && typeof window._gLight.reload === "function") {
+            window._gLight.reload();
+          }
+        } catch (e) {}
+      }
+
       const setTransition = (on) => {
         track.style.transition = on
           ? "transform 520ms cubic-bezier(0.22, 0.1, 0.2, 1)"
           : "none";
       };
 
-      const update = (i) => {
+      function update(i, animate = true) {
+        if (!slides || slides.length === 0) return;
         idx = ((i % slides.length) + slides.length) % slides.length;
+        if (!animate) setTransition(false);
         track.style.transform = `translateX(${-idx * 100}%)`;
-        dotsWrap
-          .querySelectorAll(".slider-dot")
-          .forEach((d, di) => d.classList.toggle("active", di === idx));
-        if (counter) counter.textContent = `${idx + 1} / ${slides.length}`;
-      };
+        if (dotsWrap.style.display !== "none") {
+          const nodes = dotsWrap.querySelectorAll(".slider-dot");
+          nodes.forEach((d, di) => d.classList.toggle("active", di === idx));
+        }
+        // update fraction text inside dedicated span when present
+        const textNode = counter.querySelector(".slider-counter-text");
+        if (textNode) {
+          textNode.textContent = `${idx + 1} / ${slides.length}`;
+        } else if (counter) {
+          counter.textContent = `${idx + 1} / ${slides.length}`;
+        }
+        if (!animate) setTimeout(() => setTransition(true), 20);
+      }
 
       prevBtn.addEventListener("click", () => update(idx - 1));
       nextBtn.addEventListener("click", () => update(idx + 1));
@@ -349,6 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "ArrowRight") update(idx + 1);
       });
 
+      // pointer drag (swipe)
       const viewport = ps.querySelector(".slider-viewport");
       if (viewport) {
         viewport.style.touchAction = "pan-y";
@@ -421,7 +547,23 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      update(0);
+      // handle resize: rebuild slides when perPage changes
+      function refresh() {
+        const per = perPageForWidth(window.innerWidth);
+        if (per !== currentPerPage) {
+          currentPerPage = per;
+          buildSlides(per);
+        }
+      }
+
+      let resizeTimer = null;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(refresh, 120);
+      });
+
+      // initial build
+      refresh();
     });
   } catch (err) {
     console.warn("Lightbox init error:", err);
