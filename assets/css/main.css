@@ -34,7 +34,7 @@
   --surface: #fff;
   --text: #000;
 
-  --radius: 5px;
+  --radius: 12px;
   --photo-radius: 7px;
   --shadow: none;
 
@@ -166,7 +166,6 @@ nav.desktop a,
     sans-serif;
   font-weight: 600;
 }
-
 /* Screen reader only */
 .sr-only {
   position: absolute;
@@ -268,6 +267,7 @@ nav.desktop a {
   font-size: 16px;
   color: #000;
   padding: 10px 10px;
+  border-radius: var(--radius);
 }
 
 nav.desktop a:hover {
@@ -309,6 +309,21 @@ nav.desktop a:hover {
 .btn.primary:hover {
   background: #fff;
   color: #000;
+}
+
+.btn-white {
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000 !important;
+  border-radius: var(--radius);
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
+}
+.btn-white:hover {
+  background: #000;
+  color: #fff;
 }
 
 /* Hamburger (mobile) */
@@ -713,7 +728,7 @@ h1 {
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius);
   transition:
     background-color 0.12s ease,
     color 0.12s ease;
@@ -951,7 +966,7 @@ h1 {
   bottom: 15%;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 20px 22px;
   font-family:
     "Roobert PRO",
@@ -2005,6 +2020,23 @@ footer {
   }
 }
 
+/* Stack contact CTA buttons vertically and left-align on small screens */
+@media (max-width: 767px) {
+  .contact-cta .contact-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .contact-cta .contact-cta-row .btn {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    padding-left: 0;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 520px) {
   .container {
     padding: 0 16px;
@@ -2460,6 +2492,7 @@ header.is-hidden {
   display: block;
   padding: 16px 18px;
   background: #f2f0ec;
+  border-radius: var(--radius);
   transition:
     background-color 0.14s ease,
     color 0.14s ease,
@@ -2525,6 +2558,7 @@ header.is-hidden {
   display: inline-flex;
   align-items: center;
   padding: 7px 10px;
+  border-radius: var(--radius);
   background: #f2f0ec;
   font-size: 13px;
   font-weight: 600;
