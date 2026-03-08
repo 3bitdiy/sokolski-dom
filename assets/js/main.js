@@ -194,6 +194,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll(".js-slider").forEach((slider) => {
+    const images = slider.querySelectorAll(".jcard");
+    const totalImages = images.length;
+
+    if (totalImages === 2) {
+      slider.classList.add("slider-two-images");
+    }
     const track = slider.querySelector(".slider-track");
     const slides = Array.from(track.children);
     const prev = slider.querySelector(".slider-btn.prev");
@@ -337,10 +343,26 @@ document.addEventListener("DOMContentLoaded", () => {
       let idx = 0;
       let currentPerPage = null;
 
+      const parsePerSlide = (value, fallback) => {
+        const n = Number.parseInt(value || "", 10);
+        return Number.isFinite(n) && n > 0 ? n : fallback;
+      };
+
+      const sharedPerSlide = parsePerSlide(ps.dataset.perSlide, 6);
+      const desktopPerSlide = parsePerSlide(
+        ps.dataset.perSlideDesktop,
+        sharedPerSlide,
+      );
+      const tabletPerSlide = parsePerSlide(
+        ps.dataset.perSlideTablet,
+        Math.min(sharedPerSlide, 4),
+      );
+      const mobilePerSlide = parsePerSlide(ps.dataset.perSlideMobile, 1);
+
       function perPageForWidth(w) {
-        if (w >= 1280) return 6; // 3x2
-        if (w >= 768) return 4; // 2x2
-        return 1; // 1x1
+        if (w >= 1280) return desktopPerSlide;
+        if (w >= 768) return tabletPerSlide;
+        return mobilePerSlide;
       }
 
       function buildSlides(perPage) {
@@ -355,9 +377,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const grid = document.createElement("div");
           grid.className = "slide-grid";
           // set cols/rows for visual layout
-          if (perPage === 6) grid.style.setProperty("--cols", 3);
-          else if (perPage === 4) grid.style.setProperty("--cols", 2);
-          else grid.style.setProperty("--cols", 1);
+          let cols = 1;
+          if (perPage >= 6) cols = 3;
+          else if (perPage === 4) cols = 2;
+          else if (perPage === 3) cols = 3;
+          else if (perPage === 2) cols = 2;
+          grid.style.setProperty("--cols", cols);
           // append cards
           group.forEach((c) => grid.appendChild(c.cloneNode(true)));
           slide.appendChild(grid);
@@ -365,10 +390,12 @@ document.addEventListener("DOMContentLoaded", () => {
           slides.push(slide);
         }
 
+        const isDesktopLayout = window.innerWidth >= 1280;
+        const hasMultipleSlides = slides.length > 1;
+
         // rebuild dots
         dotsWrap.innerHTML = "";
-        if (perPage >= 6) {
-          // desktop: show dots
+        if (isDesktopLayout) {
           slides.forEach((_, i) => {
             const btn = document.createElement("button");
             btn.type = "button";
@@ -379,16 +406,13 @@ document.addEventListener("DOMContentLoaded", () => {
           });
           dotsWrap.style.display = "";
           counter.style.display = "none";
-          // ensure overlay (large) arrows are present for desktop layout
           if (!ps.contains(prevBtn)) ps.appendChild(prevBtn);
           if (!ps.contains(nextBtn)) ps.appendChild(nextBtn);
-          prevBtn.style.display = "";
-          nextBtn.style.display = "";
+          prevBtn.style.display = hasMultipleSlides ? "" : "none";
+          nextBtn.style.display = hasMultipleSlides ? "" : "none";
         } else {
-          // tablet/mobile: hide dots, show fraction counter
           dotsWrap.style.display = "none";
-          counter.style.display = "";
-          // remove overlay arrows when counter mode is active to avoid duplicates
+          counter.style.display = hasMultipleSlides ? "" : "none";
           try {
             if (ps.contains(prevBtn)) prevBtn.remove();
             if (ps.contains(nextBtn)) nextBtn.remove();
@@ -400,7 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // toggle counter/inline arrows state
         // Use a dedicated span for fraction text so updates don't wipe controls
-        if (perPage < 6) {
+        if (!isDesktopLayout && hasMultipleSlides) {
           ps.classList.add("has-counter");
           // reset counter contents and create small arrows + text span
           counter.innerHTML = "";
