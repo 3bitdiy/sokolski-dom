@@ -116,7 +116,7 @@ a {
 }
 
 .header-inner {
-  max-width: 1780px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0;
 }
@@ -2513,7 +2513,7 @@ footer {
 
 .hero-media {
   width: 100vw;
-  max-width: 1780px;
+  max-width: 1280px;
   margin-left: 50%;
   transform: translateX(-50%);
   height: clamp(520px, 72vh, 860px);
