@@ -1759,6 +1759,20 @@ a.jcard:focus-visible {
   flex-wrap: wrap;
 }
 
+.contact-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+}
+
+.contact-social-label {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-right: 2px;
+}
+
 .icon-btn {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -1961,10 +1975,12 @@ footer {
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: nowrap;
 }
 
 .footer-grid a {
@@ -1981,20 +1997,12 @@ footer {
 }
 
 /* Footer brand layout */
-.footer-brand-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
 .footer-logo {
   display: block;
   max-width: 100%;
   width: auto;
   height: auto;
   max-height: 96px;
-}
-.footer-brand-text {
-  margin-bottom: 4px;
 }
 
 .footer-links {
@@ -2016,6 +2024,22 @@ footer {
 .footer-links a:hover {
   background: #fff;
   color: #000;
+}
+
+.footer-social {
+  display: flex;
+  gap: 6px;
+}
+
+.footer-partner {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-partner:hover {
+  color: #fff;
 }
 
 .footer-grid,
@@ -2040,56 +2064,10 @@ footer {
 
 @media (max-width: 1200px) {
   .footer-grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 12px;
-  }
-  .footer-brand-wrap {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .footer-links {
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .footer-links a {
-    display: block;
-    padding: 10px 12px;
-    white-space: nowrap;
-  }
-}
-
-/* Ensure single-row horizontal layout on wide screens */
-@media (min-width: 1201px) {
-  .footer-grid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .footer-brand-wrap {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .footer-links {
-    flex-direction: row;
-    gap: 28px;
-    justify-content: flex-end;
-  }
-  .footer-links a {
-    padding: 8px 18px;
-    white-space: nowrap;
+    gap: 16px;
   }
 }
 
@@ -2097,6 +2075,50 @@ footer {
   .footer-logo {
     height: 86px;
   }
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  color: #333;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.social-link:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social .social-link {
+  display: inline-flex;
+  padding: 0;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.footer-social .social-link:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }
 
 .small {
