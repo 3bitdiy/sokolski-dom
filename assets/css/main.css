@@ -533,6 +533,24 @@ nav.desktop a:hover {
   color: #fff;
 }
 
+.drawer-social {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateX(16px);
+  opacity: 0;
+  transition:
+    transform 0.52s cubic-bezier(0.22, 0.1, 0.2, 1),
+    opacity 0.38s ease;
+  transition-delay: 0.3s;
+}
+.mobile-overlay.open .drawer-social {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 /* ---------------------------
    HERO
 --------------------------- */
@@ -1745,7 +1763,7 @@ a.jcard:focus-visible {
 
 .contact-card .kicker {
   margin-bottom: 6px;
-  color: #666;
+  color: #222;
   font-weight: 600;
 }
 
@@ -1758,12 +1776,16 @@ a.jcard:focus-visible {
 
 .contact-meta a {
   color: inherit;
+  text-decoration: none;
+}
+
+.contact-meta a:hover {
   text-decoration: underline;
 }
 
 .hours {
   margin-bottom: 12px;
-  color: #333;
+  color: #222;
 }
 
 .hours ul {
@@ -1796,7 +1818,7 @@ a.jcard:focus-visible {
 }
 
 .contact-social-label {
-  color: #666;
+  color: #222;
   font-size: 1rem;
   font-weight: 600;
   margin-right: 2px;
@@ -2003,12 +2025,24 @@ footer {
   overflow-x: hidden;
 }
 
+footer .container {
+  max-width: var(--paper);
+}
+
 .footer-grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   gap: 16px;
+}
+
+@media (max-width: 980px) {
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .footer-grid a {
@@ -2061,11 +2095,12 @@ footer {
 
 .footer-partner {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-decoration: none;
   transition: color 0.15s;
   white-space: nowrap;
   flex-shrink: 0;
+  border-radius: 8px;
 }
 
 .footer-partner:hover {
@@ -2086,7 +2121,7 @@ footer {
   gap: 6px;
 }
 .copyright-row {
-  font-weight: 600;
+  font-weight: 400;
 }
 .brand-name {
   white-space: normal;
@@ -2140,6 +2175,56 @@ footer {
   background: #fff;
   color: #000;
   border-color: #fff;
+}
+
+/* ---------------------------
+   Back to top
+--------------------------- */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #000;
+  color: #fff;
+}
+
+.back-to-top svg {
+  width: 26px;
+  height: 21px;
+  margin-top: -2px;
 }
 
 .small {
@@ -2309,6 +2394,12 @@ footer {
   padding: 10px 0 !important;
   min-height: auto !important;
   font-size: 16px !important;
+}
+
+@media (max-width: 980px) {
+  .gslide-description {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
 }
 
 /* Inline arrows inside GLightbox description (caption) */
