@@ -55,8 +55,7 @@
         <a class="social-link" href="https://www.instagram.com/sokolski_kulturni_centar/" target="_blank"
           rel="noopener noreferrer" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20"
-            height="20">
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
             <circle cx="12" cy="12" r="4.5" />
             <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
@@ -64,8 +63,8 @@
         </a>
         <a class="social-link" href="https://www.facebook.com/sokolskikulturnicentarns/" target="_blank"
           rel="noopener noreferrer" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-            width="20" height="20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20"
+            height="20">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
           </svg>
         </a>
@@ -78,13 +77,16 @@
     <!-- Stage image -->
     <section class="hero-media" aria-label="Sokolski dom, Novi Sad, crtež Đorđa Tabakovića">
       <div class="stage">
-        <img src="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-1200.jpg" srcset="
-              ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-480.jpg   480w,
-              ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-800.jpg   800w,
-              ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-1200.jpg 1200w,
-              ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-1600.jpg 1600w
-            " sizes="100vw" alt="Sokolski dom, Novi Sad" loading="lazy"
-          data-lightbox-src="assets/img/home/sokolski-dom-djordje-tabakovic-crtez-cb-2400.jpg">
+        <picture>
+          <source type="image/webp" sizes="100vw" srcset="
+            ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-480px.webp   480w,
+            ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-800px.webp   800w,
+            ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1200px.webp 1200w,
+            ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1600px.webp 1600w
+          ">
+          <img src="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg"
+            alt="Sokolski dom, Novi Sad" loading="lazy">
+        </picture>
       </div>
     </section>
 
@@ -255,11 +257,15 @@
             </div>
 
             <figure class="panel-media" aria-label="Fotografija: Sokolski dom danas">
-              <img src="assets/img/home/sokolski-dom-danas-860.jpg" srcset="
-                    assets/img/home/sokolski-dom-danas-480.jpg 480w,
-                    assets/img/home/sokolski-dom-danas-860.jpg 860w
-                  " sizes="(max-width: 980px) 100vw, 495px" alt="Sokolski dom danas — programi" loading="lazy"
-                data-lightbox-src="assets/img/home/sokolski-dom-danas-860.jpg">
+              <picture>
+                <source type="image/webp" sizes="(max-width: 980px) 100vw, 495px" srcset="
+                  assets/img/home/sokolski-dom-danas-480px.webp  480w,
+                  assets/img/home/sokolski-dom-danas-800px.webp  800w,
+                  assets/img/home/sokolski-dom-danas-1000px.webp 1000w
+                ">
+                <img src="assets/img/home/sokolski-dom-danas.jpg"
+                  alt="Sokolski dom danas — programi" loading="lazy">
+              </picture>
             </figure>
           </div>
         </div>
@@ -284,13 +290,16 @@
           </p>
 
           <a class="archive-card" href="arhiv-u-slikama.html">
-            <img src="./assets/img/home/sokolski-dom-120-godina-1400.jpg" srcset="
-                  ./assets/img/home/sokolski-dom-120-godina-480.jpg   480w,
-                  ./assets/img/home/sokolski-dom-120-godina-800.jpg   800w,
-                  ./assets/img/home/sokolski-dom-120-godina-1200.jpg 1200w,
-                  ./assets/img/home/sokolski-dom-120-godina-1600.jpg 1600w
-                " sizes="(max-width: 980px) 100vw, 1010px" alt="Arhiv u slikama — naslovna fotografija" loading="lazy"
-              data-lightbox-src="assets/img/home/sokolski-dom-120-godina-1400.jpg">
+            <picture>
+              <source type="image/webp" sizes="(max-width: 980px) 100vw, 1010px" srcset="
+                ./assets/img/home/sokolski-dom-120-godina-480px.webp   480w,
+                ./assets/img/home/sokolski-dom-120-godina-800px.webp   800w,
+                ./assets/img/home/sokolski-dom-120-godina-1200px.webp 1200w,
+                ./assets/img/home/sokolski-dom-120-godina-1600px.webp 1600w
+              ">
+              <img src="./assets/img/home/sokolski-dom-120-godina.jpg"
+                alt="Arhiv u slikama — naslovna fotografija" loading="lazy">
+            </picture>
             <span class="archive-cta btn">Pogledaj arhiv u slikama</span>
           </a>
           <!-- <div class="archive-cta mob btn">Pogledaj arhiv u slikama</div> -->
@@ -356,23 +365,9 @@
                     </svg>
                   </a>
                 </div>
-                <!-- <div class="contact-actions">
-                  <a class="btn-white" href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad" target="_blank"
-                    rel="noopener noreferrer">Otvori u Google mapama</a>
-                </div> -->
               </div>
             </aside>
           </div>
-
-          <!-- .contact-grid -->
-          <!-- <div class="contact-cta" aria-hidden="false">
-            <div class="contact-cta-row">
-              <a class="btn primary" href="index.html">Početna</a>
-              <a class="btn" href="projekti.html">Projekti</a>
-              <a class="btn" href="arhiv-u-slikama.html">Arhiv u slikama</a>
-              <a class="btn" href="#top">Nazad na vrh</a>
-            </div>
-          </div> -->
         </div>
       </section>
     </div>
@@ -381,7 +376,6 @@
     <footer>
       <div class="container">
         <div class="footer-grid">
-          <!-- <img class="footer-logo" src="assets/img/sokolski-dom_logo-footer.png" alt="Sokolski dom logo" /> -->
 
           <div class="footer-meta">
             <div class="copyright-row">© <span id="year"></span> Sokolski kulturni centar</div>
@@ -417,7 +411,8 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Nazad na vrh">
     <svg width="50" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M5 34 L25 8 L45 34" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 34 L25 8 L45 34" stroke="currentColor" stroke-width="10" stroke-linecap="round"
+        stroke-linejoin="round" />
     </svg>
   </button>
 

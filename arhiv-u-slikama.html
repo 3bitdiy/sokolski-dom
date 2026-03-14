@@ -72,13 +72,16 @@
     <!-- Stage image -->
     <section aria-label="Naslovna fotografija arhiva" class="hero-media">
       <div class="stage">
-        <img alt="Sokolski dom, Novi Sad" loading="lazy" sizes="100vw"
-          src="./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-1200.jpg" srcset="
-              ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-480.jpg   480w,
-              ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-800.jpg   800w,
-              ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-1200.jpg 1200w,
-              ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-1600.jpg 1600w
-            " />
+        <picture>
+          <source type="image/webp" sizes="100vw" srcset="
+            ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-480px.webp   480w,
+            ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-800px.webp   800w,
+            ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-1200px.webp 1200w,
+            ./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero-1600px.webp 1600w
+          ">
+          <img alt="Sokolski dom, Novi Sad" loading="lazy"
+            src="./assets/img/arhiv/hero/sokolski-dom-arhiv-u-slikama-hero.jpg">
+        </picture>
       </div>
     </section>
     <!-- Paper -->
@@ -1727,22 +1730,11 @@
                     </svg>
                   </a>
                 </div>
-                <!-- <div class="contact-actions">
-                  <a class="btn-white" href="https://maps.google.com?q=Ignjata+Pavlasa+2-4+Novi+Sad"
-                    rel="noopener noreferrer" target="_blank">Otvori u Google mapama</a>
-                </div> -->
+
               </div>
             </aside>
           </div>
-          <!-- .contact-grid -->
-          <!-- <div aria-hidden="false" class="contact-cta">
-            <div class="contact-cta-row">
-              <a class="btn" href="index.html">Početna</a>
-              <a class="btn" href="projekti.html">Projekti</a>
-              <a class="btn primary" href="arhiv-u-slikama.html">Arhiv u slikama</a>
-              <a class="btn" href="#top">Nazad na vrh</a>
-            </div>
-          </div> -->
+
         </div>
       </section>
     </div>
@@ -1750,7 +1742,6 @@
     <footer>
       <div class="container">
         <div class="footer-grid">
-          <!-- <img class="footer-logo" src="assets/img/sokolski-dom_logo-footer.png" alt="Sokolski dom logo" /> -->
 
           <div class="footer-meta">
             <div class="copyright-row">© <span id="year"></span> Sokolski kulturni centar</div>
