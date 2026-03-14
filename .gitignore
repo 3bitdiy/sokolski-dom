@@ -1,6 +1,5 @@
 0/
 node_modules
 dist
-scripts/
 .DS_Store
 .vite
