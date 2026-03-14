@@ -82,7 +82,9 @@ async function processImage(src, widths) {
       continue;
     }
     await sharp(srcAbs).resize(w).webp({ quality: 82 }).toFile(out);
-    console.log(`  generated ${src.replace("assets/", "")} → ${stem}-${w}px.webp`);
+    console.log(
+      `  generated ${src.replace("assets/", "")} → ${stem}-${w}px.webp`,
+    );
     generated++;
   }
 }
@@ -100,6 +102,6 @@ if (generated === 0 && skipped > 0) {
 } else {
   console.log(
     `  WebP generation done: ${generated} new, ${skipped} skipped` +
-    ` (${heroImages.length} hero + ${galleryImages.length} gallery images)`
+      ` (${heroImages.length} hero + ${galleryImages.length} gallery images)`,
   );
 }
