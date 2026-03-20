@@ -1,2 +1,0 @@
-Dev
-Vite: pnpm dev

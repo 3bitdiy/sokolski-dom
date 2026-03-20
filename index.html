@@ -4,14 +4,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="googlebot" content="noindex, nofollow" />
   <title>Sokolski kulturni centar — Sokolski dom</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/icons/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/icons/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/icons/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/icons/apple-touch-icon.png" />
   <link rel="manifest" href="./assets/img/icons/site.webmanifest" />
+
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- prettier-ignore-start -->
+  <!-- SEO -->
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Sokolski kulturni centar Sokolski dom u Novom Sadu – mesto sporta, kulture i zajedništva od 1905. Saznajte više o programima, projektima i bogatoj istoriji." />
+  <link rel="canonical" href="https://sokolskidom.com/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preload" as="image" href="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1200px.webp"
+    type="image/webp"
+    imagesrcset="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-480px.webp 480w, ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-800px.webp 800w, ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1200px.webp 1200w, ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1600px.webp 1600w"
+    imagesizes="100vw" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sokolski kulturni centar" />
+  <meta property="og:locale" content="sr_RS" />
+  <meta property="og:url" content="https://sokolskidom.com/" />
+  <meta property="og:title" content="Sokolski kulturni centar — Sokolski dom" />
+  <meta property="og:description"
+    content="Sokolski kulturni centar Sokolski dom u Novom Sadu – mesto sporta, kulture i zajedništva od 1905. Saznajte više o programima, projektima i bogatoj istoriji." />
+  <meta property="og:image"
+    content="https://sokolskidom.com/assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sokolski kulturni centar — Sokolski dom" />
+  <meta name="twitter:description"
+    content="Sokolski kulturni centar Sokolski dom u Novom Sadu – mesto sporta, kulture i zajedništva od 1905. Saznajte više o programima, projektima i bogatoj istoriji." />
+  <meta name="twitter:image"
+    content="https://sokolskidom.com/assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg" />
+  <!-- prettier-ignore-end -->
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sokolski kulturni centar",
+    "url": "https://sokolskidom.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CivicStructure",
+    "name": "Sokolski kulturni centar „Sokolski dom"",
+    "alternateName": "Sokolski dom",
+    "url": "https://sokolskidom.com/",
+    "logo": "https://sokolskidom.com/assets/img/sokolski-dom-logo-header.png",
+    "image": "https://sokolskidom.com/assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg",
+    "description": "Sokolski kulturni centar „Sokolski dom" u Novom Sadu – mesto sporta, kulture i zajedništva od 1905. godine.",
+    "foundingDate": "1905",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ignjata Pavlasa 2–4",
+      "addressLocality": "Novi Sad",
+      "addressCountry": "RS"
+    },
+    "telephone": "+381215295686",
+    "email": "office@sokolskidom.com",
+    "sameAs": [
+      "https://www.instagram.com/sokolski_kulturni_centar/",
+      "https://www.facebook.com/sokolskikulturnicentarns/"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -89,8 +156,8 @@
             ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1200px.webp 1200w,
             ./assets/img/home/sokolski-dom-djordje-tabakovic-crtez-1600px.webp 1600w
           ">
-          <img src="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg"
-            alt="Sokolski dom, Novi Sad" loading="lazy">
+          <img src="./assets/img/home/sokolski-dom-djordje-tabakovic-crtez.jpg" alt="Sokolski dom, Novi Sad"
+            fetchpriority="high">
         </picture>
       </div>
     </section>
@@ -268,8 +335,7 @@
                   assets/img/home/sokolski-dom-danas-800px.webp  800w,
                   assets/img/home/sokolski-dom-danas-1000px.webp 1000w
                 ">
-                <img src="assets/img/home/sokolski-dom-danas.jpg"
-                  alt="Sokolski dom danas — programi" loading="lazy">
+                <img src="assets/img/home/sokolski-dom-danas.jpg" alt="Sokolski dom danas — programi" loading="lazy">
               </picture>
             </figure>
           </div>
@@ -302,8 +368,8 @@
                 ./assets/img/home/sokolski-dom-120-godina-1200px.webp 1200w,
                 ./assets/img/home/sokolski-dom-120-godina-1600px.webp 1600w
               ">
-              <img src="./assets/img/home/sokolski-dom-120-godina.jpg"
-                alt="Arhiv u slikama — naslovna fotografija" loading="lazy">
+              <img src="./assets/img/home/sokolski-dom-120-godina.jpg" alt="Arhiv u slikama — naslovna fotografija"
+                loading="lazy">
             </picture>
             <span class="archive-cta btn">Pogledaj arhiv u slikama</span>
           </a>
