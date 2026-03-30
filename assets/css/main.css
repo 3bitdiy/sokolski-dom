@@ -577,6 +577,14 @@ nav.desktop a:hover {
   display: block;
 }
 
+.page-home .hero-media .stage img {
+  object-position: 20% center;
+}
+
+.page-arhiv .hero-media .stage img {
+  object-position: left center;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
